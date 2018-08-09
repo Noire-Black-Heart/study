@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 51fd41cc3e498db577d1fa24d21d358bad08ba4d
+<libraryInfo home="D:\Program Files\Java\jre1.8.0" version="1.8.0_181">
+<bootpath>
+<entry path="D:\Program Files\Java\jre1.8.0\lib\resources.jar"/>
+<entry path="D:\Program Files\Java\jre1.8.0\lib\rt.jar"/>
+<entry path="D:\Program Files\Java\jre1.8.0\lib\sunrsasign.jar"/>
+<entry path="D:\Program Files\Java\jre1.8.0\lib\jsse.jar"/>
+<entry path="D:\Program Files\Java\jre1.8.0\lib\jce.jar"/>
+<entry path="D:\Program Files\Java\jre1.8.0\lib\charsets.jar"/>
+<entry path="D:\Program Files\Java\jre1.8.0\lib\jfr.jar"/>
+<entry path="D:\Program Files\Java\jre1.8.0\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\Program Files\Java\jre1.8.0\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\Program Files\Java\jre1.8.0\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<<<<<<< HEAD
+>>>>>>> 51fd41cc3e498db577d1fa24d21d358bad08ba4d
+=======
+>>>>>>> 51fd41cc3e498db577d1fa24d21d358bad08ba4d
+<libraryInfo home="C:\Program Files\Java\jre1.8.0_121" version="1.8.0_121">
+<bootpath>
+<entry path="C:\Program Files\Java\jre1.8.0_121\lib\resources.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_121\lib\rt.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_121\lib\sunrsasign.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_121\lib\jsse.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_121\lib\jce.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_121\lib\charsets.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_121\lib\jfr.jar"/>
+<entry path="C:\Program Files\Java\jre1.8.0_121\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files\Java\jre1.8.0_121\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files\Java\jre1.8.0_121\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>
