@@ -37,3 +37,4 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find
 >>>>>>> 51fd41cc3e498db577d1fa24d21d358bad08ba4d
 =======
 >>>>>>> 51fd41cc3e498db577d1fa24d21d358bad08ba4d
+2018-08-09 11:00:24,485 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

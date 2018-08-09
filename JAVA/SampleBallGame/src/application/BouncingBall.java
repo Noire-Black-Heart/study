@@ -76,25 +76,10 @@ public class BouncingBall extends Application {
   		}
 //Bounces off the other ball
         double colli = ball.getRadius() + ball2.getRadius();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        double dist = Math.sqrt(Math.pow(Math.abs(ball.getLayoutX() - ball2.getLayoutX()), 2) );
-=======
         double absX = Math.abs(ball.getLayoutX() - ball2.getLayoutX());
         double absY = Math.abs(ball.getLayoutY() - ball2.getLayoutY());
         double dist = Math.sqrt(Math.pow(absX, 2) + Math.pow(absY, 2) );
->>>>>>> 51fd41cc3e498db577d1fa24d21d358bad08ba4d
-=======
-        double absX = Math.abs(ball.getLayoutX() - ball2.getLayoutX());
-        double absY = Math.abs(ball.getLayoutY() - ball2.getLayoutY());
-        double dist = Math.sqrt(Math.pow(absX, 2) + Math.pow(absY, 2) );
->>>>>>> 51fd41cc3e498db577d1fa24d21d358bad08ba4d
-=======
-        double absX = Math.abs(ball.getLayoutX() - ball2.getLayoutX());
-        double absY = Math.abs(ball.getLayoutY() - ball2.getLayoutY());
-        double dist = Math.sqrt(Math.pow(absX, 2) + Math.pow(absY, 2) );
->>>>>>> 51fd41cc3e498db577d1fa24d21d358bad08ba4d
+
         if(dist <= colli){
         	dx = -dx;
         	dy = -dy;
