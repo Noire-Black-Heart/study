@@ -1,0 +1,5 @@
+package poolGame;
+
+public abstract class AbstractReaderFactory {
+		
+}
