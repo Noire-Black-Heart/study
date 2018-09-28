@@ -90,7 +90,7 @@ public class ConfigReader {
 		if (args.length > 0) {
 			configPath = args[0];
 		} else {
-			configPath = "config.json";
+			configPath = "config3.json";
 		}
 		// parse the file:
 		ConfigReader.parse(configPath);

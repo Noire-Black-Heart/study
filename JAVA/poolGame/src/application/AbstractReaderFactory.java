@@ -1,5 +1,5 @@
 package application;
 
-public abstract class AbstractReaderFactory {
-		
+public interface AbstractReaderFactory {
+		public Reader CreateReader();
 }
