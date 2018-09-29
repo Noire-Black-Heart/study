@@ -55,18 +55,21 @@ public class ConfigReader {
 
 				// the ball colour is a String
 				// TODO: String colour =
-
+				String colour = (String)jsonBall.get("colour");
+				
 				// the ball position, velocity, mass are all doubles
 				Double positionX = (Double) ((JSONObject) jsonBall.get("position")).get("x");
 				// TODO: Double positionY =
-
+				Double positionY = (Double) ((JSONObject) jsonBall.get("position")).get("y");
 				// TODO: Double velocityX =
+				Double velocityX = (Double) ((JSONObject) jsonBall.get("velocity")).get("x");
 				// TODO: Double velocityY =
-
+				Double velocityY = (Double) ((JSONObject) jsonBall.get("velocity")).get("y");
+				
 				Double mass = (Double) jsonBall.get("mass");
 
 				// TODO: delete me, this is just a demonstration:
-				System.out.println("Ball x: " + positionX + ", mass: " + mass);
+				System.out.println("Ball colour: "+ colour + ", x: " + positionX + ", y: " + positionY + ", mass: " + mass);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
