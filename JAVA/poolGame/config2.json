@@ -1,0 +1,98 @@
+{
+  "Table": {
+    "colour": "green",
+    "friction": 0.5,
+    "size": {
+      "x": 600,
+      "y": 400
+    }
+  },
+  "Balls": {
+    "ball": [
+      {
+        "colour": "white",
+        "position": {
+          "x": 20.0,
+          "y": 100.0
+        },
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "mass": 2.0
+      },
+      {
+        "colour": "red",
+        "position": {
+          "x": 25.0,
+          "y": 45.0
+        },
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "mass": 1.0
+      },
+      {
+        "colour": "red",
+        "position": {
+          "x": 25.0,
+          "y": 65.0
+        },
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "mass": 1.0
+      },
+      {
+        "colour": "red",
+        "position": {
+          "x": 25.0,
+          "y": 85.0
+        },
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "mass": 1.0
+      },
+      {
+        "colour": "red",
+        "position": {
+          "x": 65.0,
+          "y": 45.0
+        },
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "mass": 1.0
+      },
+      {
+        "colour": "red",
+        "position": {
+          "x": 65.0,
+          "y": 65.0
+        },
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "mass": 1.0
+      },
+      {
+        "colour": "red",
+        "position": {
+          "x": 65.0,
+          "y": 85.0
+        },
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "mass": 1.0
+      },
+    ]
+  }
+}

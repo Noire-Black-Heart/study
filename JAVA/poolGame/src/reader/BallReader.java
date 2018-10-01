@@ -4,12 +4,18 @@ import java.io.*;
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import ballBuilder.Ball;
+import ballBuilder.BallBuilder;
+
+import java.util.*;
 public class BallReader implements Reader {
 
 	@Override
-	public void parse(String path) {
+	public ArrayList<Ball> parse(String path) {
 		// TODO Auto-generated method stub
 		JSONParser parser = new JSONParser();
+		ArrayList<Ball> list = new ArrayList<Ball>();
 		try {
 			Object object = parser.parse(new FileReader(path));
 
@@ -23,26 +29,23 @@ public class BallReader implements Reader {
 			JSONArray jsonBallsBall = (JSONArray) jsonBalls.get("ball");
 
 			// reading from the array:
+			int i = 0;
 			for (Object obj : jsonBallsBall) {
 				JSONObject jsonBall = (JSONObject) obj;
 
-				// the ball colour is a String
-				// TODO: String colour =
-				String colour = (String)jsonBall.get("colour");
-				
-				// the ball position, velocity, mass are all doubles
-				Double positionX = (Double) ((JSONObject) jsonBall.get("position")).get("x");
-				// TODO: Double positionY =
-				Double positionY = (Double) ((JSONObject) jsonBall.get("position")).get("y");
-				// TODO: Double velocityX =
-				Double velocityX = (Double) ((JSONObject) jsonBall.get("velocity")).get("x");
-				// TODO: Double velocityY =
-				Double velocityY = (Double) ((JSONObject) jsonBall.get("velocity")).get("y");
-				
-				Double mass = (Double) jsonBall.get("mass");
+				//setting the ball object
+				BallBuilder builder = new BallBuilder();
+				builder.setColour((String)jsonBall.get("colour"));
+				builder.setMass((Double) jsonBall.get("mass"));
+				builder.setPositionX((Double) ((JSONObject) jsonBall.get("position")).get("x"));
+				builder.setPositionY((Double) ((JSONObject) jsonBall.get("position")).get("y"));
+				builder.setVelocityX((Double) ((JSONObject) jsonBall.get("velocity")).get("x"));
+				builder.setVelocityY((Double) ((JSONObject) jsonBall.get("velocity")).get("y"));
+				list.add(builder.getResult());
 
 				// TODO: delete me, this is just a demonstration:
-				System.out.println("Ball colour: "+ colour + ", x: " + positionX + ", y: " + positionY + ", mass: " + mass);
+				System.out.println("Ball colour: "+ list.get(i).getColour() + ", x: " + list.get(i).getPositionX() + ", y: " + list.get(i).getPositionY() + ", mass: " + list.get(i).getMass());
+				i ++;
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -51,6 +54,14 @@ public class BallReader implements Reader {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
+		return list;
 	}
+
+//	@Override
+//	public void parse(String path, TableHolder table) {
+//		// placeholder
+//		
+//	}
 
 }
