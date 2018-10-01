@@ -60,11 +60,7 @@ public class Main extends Application {
 		Constants.balls = readBall.FacadeParse(configPath);
 		Constants.table = readTable.FacadeParse(configPath);
 		
-		//load the configs into javafx
-		for(Ball b : Constants.balls) {
-			System.out.println(b.getPositionX());
-			
-		}
+		
 		
 		
 		
