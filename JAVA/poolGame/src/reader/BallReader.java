@@ -13,7 +13,7 @@ public class BallReader implements Reader {
 
 	@Override
 	public ArrayList<Ball> parse(String path) {
-		// TODO Auto-generated method stub
+
 		JSONParser parser = new JSONParser();
 		ArrayList<Ball> list = new ArrayList<Ball>();
 		try {
@@ -43,7 +43,7 @@ public class BallReader implements Reader {
 				builder.setVelocityY((Double) ((JSONObject) jsonBall.get("velocity")).get("y"));
 				list.add(builder.getResult());
 
-				// TODO: delete me, this is just a demonstration:
+
 				System.out.println("Ball colour: "+ list.get(i).getColour() + ", x: " + list.get(i).getPositionX() + ", y: " + list.get(i).getPositionY() + ", mass: " + list.get(i).getMass());
 				i ++;
 			}
@@ -58,10 +58,6 @@ public class BallReader implements Reader {
 		return list;
 	}
 
-//	@Override
-//	public void parse(String path, TableHolder table) {
-//		// placeholder
-//		
-//	}
+
 
 }

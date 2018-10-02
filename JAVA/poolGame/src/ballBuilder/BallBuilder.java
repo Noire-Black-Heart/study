@@ -3,20 +3,20 @@ package ballBuilder;
 public class BallBuilder implements Builder {
 
 	String colour;
-	// the ball position, velocity, mass are all doubles
+
 	Double positionX;
-	// TODO: Double positionY =
+
 	Double positionY;
-	// TODO: Double velocityX =
+	
 	Double velocityX;
-	// TODO: Double velocityY =
+
 	Double velocityY;
 	
 	Double mass;
 	
 	@Override
 	public void setColour(String colour) {
-		// TODO Auto-generated method stub
+		
 		this.colour = colour;
 	}
 

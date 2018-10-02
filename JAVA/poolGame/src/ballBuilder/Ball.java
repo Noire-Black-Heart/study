@@ -1,19 +1,21 @@
 package ballBuilder;
-
+import javafx.scene.shape.*;
 public class Ball {
 	String colour;
 	
-	// the ball position, velocity, mass are all doubles
+	
 	Double positionX;
-	// TODO: Double positionY =
+	
 	Double positionY;
-	// TODO: Double velocityX =
+	
 	Double velocityX;
-	// TODO: Double velocityY =
+	
 	Double velocityY;
 	
 	Double mass;
 	
+	Circle ball;
+	//constructor
 	public Ball(String colour, Double pX, Double pY, Double vX, Double vY, Double mass) {
 		this.colour = colour;
 		this.positionX = pX;
@@ -21,8 +23,9 @@ public class Ball {
 		this.velocityX = vX;
 		this.velocityY = vY;
 		this.mass = mass;
+		this.ball = new Circle();
 	}
-	
+	//getters
     public String getColour() {
         return colour;
     }
@@ -50,5 +53,9 @@ public class Ball {
 
     public Double getMass() {
         return mass;
+    }
+    
+    public Circle getBall() {
+    	return ball;
     }
 }

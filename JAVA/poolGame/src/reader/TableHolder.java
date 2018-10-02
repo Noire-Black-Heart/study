@@ -5,7 +5,7 @@ public class TableHolder {
 	Double friction;
 	Long tableX;
 	Long tableY;
-	
+	//getters and setters
 	public void setColour(String colour) {
         this.colour = colour;
     }

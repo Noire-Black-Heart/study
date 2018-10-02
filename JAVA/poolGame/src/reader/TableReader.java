@@ -9,7 +9,7 @@ public class TableReader implements Reader {
 
 	@Override
 	public ArrayList<TableHolder> parse(String path) {
-		// TODO Auto-generated method stub
+
 		JSONParser parser = new JSONParser();
 		ArrayList<TableHolder> list = new ArrayList<TableHolder>();
 		try {
@@ -28,7 +28,7 @@ public class TableReader implements Reader {
 			e.setTableX((Long) ((JSONObject) jsonTable.get("size")).get("x"));
 			e.setTableY((Long) ((JSONObject) jsonTable.get("size")).get("y"));
 			list.add(e);
-			// TODO: delete me, this is just a demonstration:
+			
 			System.out.println("Table colour: " + e.getColour() + ", x: " + e.getTableX() + ", y: " + e.getTableY() + ", friction: " + e.getFriction());
 
 			
@@ -43,10 +43,6 @@ public class TableReader implements Reader {
 		return list;
 	}
 
-//	@Override
-//	public void parse(String path, ArrayList<BallHolder> list) {
-//		// placeholder
-//		
-//	}
+
 
 }
