@@ -3,7 +3,6 @@ import javafx.scene.shape.*;
 public class Ball {
 	String colour;
 	
-	
 	Double positionX;
 	
 	Double positionY;

@@ -79,6 +79,8 @@ public class VariousShapes extends Application {
 		line.setStartY(40); 
 		line.setEndX(100); 
 		line.setEndY(200);
+		line.setStrokeWidth(10);
+		line.setStroke(Color.BROWN);
 		canvas.getChildren().add(line);
 		
 		

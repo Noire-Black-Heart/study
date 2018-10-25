@@ -206,6 +206,7 @@ public class Main extends Application {
 	  String filepath = "config.json"; 
 	  AbstractFactoryConfiguration TableFactory = FactoryProducer.getFactory("table");
 	  AbstractFactoryConfiguration BallFactory = FactoryProducer.getFactory("ball");
+	  
 
 	  Pool_table new_table = TableFactory.getPoolTable(filepath);
 	  BallCollection balls =  BallFactory.getPoolBalls(filepath);
