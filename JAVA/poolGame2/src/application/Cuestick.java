@@ -9,10 +9,11 @@ public class Cuestick {
 			this.stick = new Line(startX, startY, endX, endY);
 		}
 		
-		public static Cuestick getInstance(double startX, double startY, double endX, double endY){
+		public static Cuestick getInstance(){
 			//lazy initialisation
 			if(instance == null){
-				instance = new Cuestick(startX, startY, endX, endY);
+				instance = new Cuestick(1, 1, 2, 2);
+				instance.stick.setStrokeWidth(10);
 			}
 			return instance;
 		}
