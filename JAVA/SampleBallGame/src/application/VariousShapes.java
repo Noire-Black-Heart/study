@@ -15,7 +15,7 @@ public class VariousShapes extends Application {
 		
 		Pane canvas=new Pane();  //The root of scene graph is a layout node
 		//create a scene by bypassing the root node and set the resolution
-		Scene scene = new Scene(canvas, 800, 800); 
+		Scene scene = new Scene(canvas, 1600, 800); 
 				
 		
 		//Drawing a rectangle

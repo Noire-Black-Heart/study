@@ -9,6 +9,7 @@ public abstract class PoolBalls extends Circle  {
 	protected double changeX, changeY; 
 	protected double OposX, OposY; 
 	protected double mass; 
+	String color;
 	PoolBalls(int x, int y, int r){
 		super(x, y ,r); 
 	}
@@ -30,3 +31,5 @@ public abstract class PoolBalls extends Circle  {
 	protected abstract double getOposX();
 	protected abstract double getOposY();
 }
+
+//this abstract class is used as the component of the new composite design pattern

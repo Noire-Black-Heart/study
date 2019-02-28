@@ -23,13 +23,9 @@ public class BallFactory implements AbstractFactoryConfiguration{
 		
 		JSONParser parser = new JSONParser();
 		try {
-
 		      Object obj = parser.parse(new FileReader(filepath));
-
-		      
 		      JSONObject jsonObject = (JSONObject) obj;
 		      //System.out.println(jsonObject);
-
 		      JSONObject Balls = (JSONObject) jsonObject.get("Balls"); 
 		     // System.out.println(Balls);
 		      
@@ -50,6 +46,18 @@ public class BallFactory implements AbstractFactoryConfiguration{
 		      e3.printStackTrace();
 		  }
 		
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PoolImage getImage(String filepath) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PocketCollection getPockets(String filepath) {
 		// TODO Auto-generated method stub
 		return null;
 	}

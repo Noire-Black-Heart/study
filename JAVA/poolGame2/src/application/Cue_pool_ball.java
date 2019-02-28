@@ -3,8 +3,10 @@ package application;
 
 
 
+
 public class Cue_pool_ball extends PoolBalls {
 	 
+	
 	protected void setMass(double mass) {
 		this.mass = mass; 
 	}

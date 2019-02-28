@@ -6,7 +6,8 @@ public class Pool_table extends Rectangle {
 	
 	
 	private double friction; 
-	private final double stroke_width = 35; 
+
+	//private final double stroke_width = 35; 
 	
 	Pool_table(int x, int y, int w, int h){
 		super(x, y , w, h); 
@@ -17,7 +18,9 @@ public class Pool_table extends Rectangle {
 	protected double getFriction() {
 		return friction; 
 	}
-	protected double getPoolWidth() {
-		return stroke_width; 
-	}
+	
+	
+	//protected double getPoolWidth() {
+	//	return stroke_width; 
+	//}
 }

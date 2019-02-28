@@ -34,7 +34,7 @@ public class ReadTableFactory implements AbstractFactoryConfiguration {
 		    
 	      JSONObject table = (JSONObject) jsonObject.get("Table"); 
 	      //System.out.println(table);
-	      String table_colour = (String) table.get("colour");
+	      //  String table_colour = (String) table.get("colour");
 	      
 	      String friction = (String) String.valueOf(table.get("friction")) ; 
 	      //System.out.println("string friction:  "+ friction);
@@ -53,8 +53,8 @@ public class ReadTableFactory implements AbstractFactoryConfiguration {
 //	      System.out.println("table y:  "+ d_table_y);
 	      Pool_table pool = new Pool_table(0, 0, n_table_x, n_table_y);
 	      
-	      Color c = Color.web(table_colour);
-		   pool.setFill(c);
+	   //   Color c = Color.web(table_colour);
+	   //   pool.setFill(c);
 		 
 		   pool.setFriction(friction_number);
 		  // pool.setStrokeWidth(pool.getPoolWidth());
@@ -78,6 +78,18 @@ public class ReadTableFactory implements AbstractFactoryConfiguration {
 
 	@Override
 	public BallCollection getPoolBalls(String filepath) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PoolImage getImage(String filepath) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PocketCollection getPockets(String filepath) {
 		// TODO Auto-generated method stub
 		return null;
 	}

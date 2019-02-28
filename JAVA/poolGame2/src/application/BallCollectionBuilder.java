@@ -20,6 +20,7 @@ public class BallCollectionBuilder extends Builder{
 				  JSONObject ball = (JSONObject) arrayToRead.get(i);
 	        	  JSONObject position  = (JSONObject) ball.get("position"); 
 	        	  String colour = (String) ball.get("colour"); 
+	        	  
 	        
 	        	  Double mass = (Double)  ball.get("mass");
 	        	
@@ -39,6 +40,7 @@ public class BallCollectionBuilder extends Builder{
 	        		 
 	        		  PoolBalls ball_element = new Cue_pool_ball(n_pX, n_pY, 15); 
 	        		   
+	        		 ball_element.color = colour;
 	        		  
 	        		  ball_element.setVelocity(d_vX, d_vY);
 	        		  ball_element.setMass(mass);
@@ -51,7 +53,7 @@ public class BallCollectionBuilder extends Builder{
 	        		  PoolBalls ball_element = new Reg_pool_ball(n_pX, n_pY, 15); 
 	        		   
 	        		
-	        		  
+	        		  ball_element.color = colour;
 	        		  ball_element.setVelocity(d_vX, d_vY);
 	        		  ball_element.setMass(mass);
 	        		  Color c = Color.web(colour);
@@ -59,6 +61,7 @@ public class BallCollectionBuilder extends Builder{
 	        		  ballCollection.addBall(ball_element);
 	        		  
 	        	  }
+	        	  System.out.println(ball.get("strength"));
 	        	  
 	          }
 			 return ballCollection;

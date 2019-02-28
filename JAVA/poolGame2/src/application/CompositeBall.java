@@ -1,19 +1,38 @@
 package application;
 
+import java.util.ArrayList;
 
-
-
-
-public class Reg_pool_ball extends PoolBalls {
+public class CompositeBall extends PoolBalls {
+	double strength;
+	
+	protected ArrayList<PoolBalls> nodes = new  ArrayList<PoolBalls>();
 	
 	
-	protected void setMass(double mass) {
-		this.mass = mass; 
+	protected void setStrength(double strength) {
+		this.strength = strength;
 	}
+	
+	protected double getStrength() {
+		return this.strength;
+	}
+	
+	
+	protected void setMass() {
+		// TODO Auto-generated method stub
+		this.mass = 0;
+		for(PoolBalls ball: nodes) {
+			this.mass += ball.getMass();
+		}
+	}
+
+	@Override
 	protected double getMass() {
-		return mass; 
+		// TODO Auto-generated method stub
+		return this.mass;
+		
 	}
-	Reg_pool_ball(int x, int y, int r){
+	
+	CompositeBall(int x, int y, int r){
 		super(x, y ,r); 
 	}
 
@@ -57,6 +76,12 @@ public class Reg_pool_ball extends PoolBalls {
 	protected double getOposY() {
 		return 0; 
 	}
-}
-//this class is used as the new leaf class for the composite design pattern
 
+	@Override
+	protected void setMass(double mass) {
+		// TODO Auto-generated method stub
+		this.mass = mass;
+		
+	}
+	
+}
