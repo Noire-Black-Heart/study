@@ -24,6 +24,8 @@ public static String hashMessages(ArrayList<String> messages) {
 
 			// write you code here
 			for(int i = 0; i < messages.size(); i++) {
+				
+			//took me 1 hour to figure out should use writeUTF instead of writeChars LOL
 			dos.writeUTF(messages.get(i));
 			System.out.println(i + " times");
 			}
