@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ShoppingBasketTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-03-11T04:56:16" hostname="dell-PC" time="0.014">
+  <properties/>
+  <testcase name="RemoveItemTest" classname="ShoppingBasketTest" time="0.008"/>
+  <testcase name="GetValueTest" classname="ShoppingBasketTest" time="0.0"/>
+  <testcase name="addItemTest" classname="ShoppingBasketTest" time="0.005"/>
+  <testcase name="ClearTest" classname="ShoppingBasketTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
