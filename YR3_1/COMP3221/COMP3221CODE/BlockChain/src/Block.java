@@ -1,11 +1,16 @@
 import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
 public class Block {
     private Block previousBlock;
     private byte[] previousHash;
     private ArrayList<Transaction> transactions;
-
+ 
     public Block() { transactions = new ArrayList<>(); }
 
     // getters and setters
@@ -41,6 +46,29 @@ public class Block {
     // to calculate the hash of current block.
     public byte[] calculateHash() {
         // TODO: implement your code here.
+    	try {
+			MessageDigest digest = MessageDigest.getInstance("SHA-256");
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			DataOutputStream dos = new DataOutputStream(baos);
+			
+			dos.write(previousHash);
+			
+			for (Transaction trans : transactions) {
+				dos.writeUTF("tx|" + trans.getSender() + "|" + trans.getContent());
+				
+			}
+			
+			byte[] bytes = baos.toByteArray();
+			byte[] hash = digest.digest(bytes);
+			
+			return hash;
+		} catch (NoSuchAlgorithmException e) { 
+			e.printStackTrace();
+		} catch (IOException e) { 
+			e.printStackTrace();
+		}
+		
+		return null;
     }
 
     // implement helper functions here if you need any.

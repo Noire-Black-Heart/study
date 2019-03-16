@@ -65,7 +65,7 @@ public class BlockchainClient {
         	String outputLine = null;
         	
         	while(((outputLine = inputReader.readLine()) != null)){
-				System.out.print(outputLine + "\n");
+				System.out.print(inputReader.readLine() + "\n");
 				//break if no input to read
 				if(!inputReader.ready()) {
 					break;

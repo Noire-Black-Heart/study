@@ -13,4 +13,22 @@ public class Transaction {
     }
 
     // implement helper functions here if you need any
+    public boolean isValidTransaction() {
+    	
+    			// check sender
+    			if(!this.getSender().matches("[a-z]{4}[0-9]{4}")) {
+    				return false;
+    			}
+    			
+    			// check content length
+    			if(this.getContent().length() > 70) {
+    				return false;
+    			}
+    			
+    	
+    	return true;
+    }
+    
+    
+    
 }
