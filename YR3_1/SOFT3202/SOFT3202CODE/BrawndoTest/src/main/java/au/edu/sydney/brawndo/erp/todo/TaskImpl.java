@@ -55,7 +55,7 @@ public class TaskImpl implements Task{
 	public void setDateTime(LocalDateTime dateTime) throws IllegalArgumentException {
 		// TODO Auto-generated method stub
 		if(dateTime == null) {
-			throw new IllegalArgumentException("dateTime input is null!");
+			throw new IllegalArgumentException("null input!");
 		}
 		this.time = dateTime;
 	}
