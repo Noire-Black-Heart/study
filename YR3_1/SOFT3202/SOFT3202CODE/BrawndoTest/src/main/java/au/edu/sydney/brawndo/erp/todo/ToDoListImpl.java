@@ -8,6 +8,9 @@ import au.edu.sydney.brawndo.erp.todo.Task.Field;
 
 public class ToDoListImpl implements ToDoList{
 
+	
+	
+	
 	@Override
 	public Task add(Integer id, LocalDateTime dateTime, String location, String description)
 			throws IllegalArgumentException, IllegalStateException {
@@ -18,6 +21,8 @@ public class ToDoListImpl implements ToDoList{
 	@Override
 	public boolean remove(int id) {
 		// TODO Auto-generated method stub
+		
+		
 		return false;
 	}
 
