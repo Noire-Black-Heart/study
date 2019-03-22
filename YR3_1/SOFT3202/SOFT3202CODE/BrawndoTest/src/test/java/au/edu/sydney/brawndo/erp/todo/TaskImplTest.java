@@ -116,10 +116,18 @@ public class TaskImplTest {
 		
 	}
 	
-//	@Test
-//	public void testGetID() {
-//		assertEquals(myTask.getID(), 1);
-//	}
+	@Test
+	public void testGetField() {
+		
+		assertEquals(myTask.getField(Task.Field.DESCRIPTION), "cyka blyat");
+		
+		assertEquals(myTask.getField(Task.Field.LOCATION), "Sydney");
+		
+		//invalid input
+				exception.expect(IllegalArgumentException.class);
+				myTask.getField(null);
+
+	}
 }
 
 

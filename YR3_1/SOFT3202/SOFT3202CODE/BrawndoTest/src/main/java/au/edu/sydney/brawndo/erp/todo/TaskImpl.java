@@ -9,7 +9,10 @@ public class TaskImpl implements Task{
 	private String location;
 	private String description;
 	private boolean complete;
-	private Field field;
+//	private Field Field;
+//	private enum Field{
+//		 LOCATION, DESCRIPTION
+//	}
 	
 	//constructor
 	public TaskImpl(int id, LocalDateTime dateTime, String location, String description) {
@@ -93,8 +96,20 @@ public class TaskImpl implements Task{
 	@Override
 	public String getField(Field field) throws IllegalArgumentException {
 		// TODO Auto-generated method stub
+		if(field == null) {
+			throw new IllegalArgumentException();
+		}
 		
-		return null;
+		if(field == Task.Field.LOCATION) {
+			return location;
+		}
+		
+		else if(field == Task.Field.DESCRIPTION) {
+			return description;
+		}
+		else {
+			return null;
+		}
 	}
 	
 	
