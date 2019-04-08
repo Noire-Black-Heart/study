@@ -9,6 +9,10 @@ public class MyClass {
     
     public String doSomething() {
         // you don't know what is in here
+    	dependency.getSomeResult("123", 123);
+    	dependency.getSomeResult("123", 123);
+    	dependency.getSomeResult("123", 123);
+    	dependency.getSomeResult("123", 123);
     	return null;
     }
 }
