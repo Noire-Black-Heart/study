@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2019-04-13T06:51:59" hostname="dell-PC" time="0.018">
+  <properties/>
+  <testcase name="testRemoveNotPresent" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.001"/>
+  <testcase name="testRemovePresent" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.001"/>
+  <testcase name="testFindAll" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testFindOne" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testClear" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testFindAllCyka" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.005"/>
+  <testcase name="testFindAllTime" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testAddNullBehindFix" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.001"/>
+  <testcase name="testAddNormal" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testAddTimeNull" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testAddDupIDFix" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testRemove1" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testFindAllComplete" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.001"/>
+  <testcase name="testAddDupIDNull" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testAddDupNullID" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.003"/>
+  <testcase name="testAddLocationEmpty" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testAddLocationLong" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <testcase name="testAddLocationNull" classname="au.edu.sydney.brawndo.erp.todo.ToDoListImplTest" time="0.0"/>
+  <system-out><![CDATA[5
+6
+7
+11
+12
+13
+14
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

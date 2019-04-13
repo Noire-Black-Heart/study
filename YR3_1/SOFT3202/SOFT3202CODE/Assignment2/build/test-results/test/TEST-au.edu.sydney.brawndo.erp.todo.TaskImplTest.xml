@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="au.edu.sydney.brawndo.erp.todo.TaskImplTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2019-04-13T06:51:59" hostname="dell-PC" time="0.017">
+  <properties/>
+  <testcase name="testSetLocationLong" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.011"/>
+  <testcase name="testGetField" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.001"/>
+  <testcase name="testSetLocationEmpty" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.0"/>
+  <testcase name="testGetID" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.0"/>
+  <testcase name="testSetDateTime" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.0"/>
+  <testcase name="testSetDescription" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.0"/>
+  <testcase name="testGetDateTime" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.0"/>
+  <testcase name="testSetLocation" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.001"/>
+  <testcase name="testGetLocation" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.0"/>
+  <testcase name="testIsCompleted" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.0"/>
+  <testcase name="testComplete" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.0"/>
+  <testcase name="testGetDescription" classname="au.edu.sydney.brawndo.erp.todo.TaskImplTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
