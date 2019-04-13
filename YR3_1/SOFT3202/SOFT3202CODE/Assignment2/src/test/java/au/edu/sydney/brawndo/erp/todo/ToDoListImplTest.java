@@ -4,12 +4,12 @@ import static org.junit.Assert.*;
 
 import java.time.LocalDateTime;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import java.util.HashMap;
 import java.util.Map;
+import static org.hamcrest.CoreMatchers.*;
 
 import au.edu.sydney.brawndo.erp.todo.Task.Field;
 
@@ -97,19 +97,28 @@ public class ToDoListImplTest {
 	
 	
 	@Test
-	public void testAddNull() {
-//
-//		//all null
-//		myList.add(null, null, null, null);
-//
-//		assertEquals(myList.findAll().get(0).getDateTime(), null);
-//		assertEquals(myList.findAll().get(0).getDescription(), null);
-//		assertEquals(myList.findAll().get(0).getLocation(), null);
-//		assertEquals(myList.findAll().get(0).getField(Field.DESCRIPTION), null);
-//		assertEquals(myList.findAll().get(0).getField(Field.LOCATION), null);
-//
-//
+	public void testAddTimeNull() {
+		exception.expect(IllegalArgumentException.class);
+		myList.add(1, null, "loc1", "des1");
 	}
+	@Test
+	public void testAddLocationNull() {
+		exception.expect(IllegalArgumentException.class);
+		myList.add(1, time, null, "des1");
+	}
+	@Test
+	public void testAddLocationEmpty() {
+		exception.expect(IllegalArgumentException.class);
+		myList.add(1, time, "", "des1");
+	}
+	@Test
+	public void testAddLocationLong() {
+		myList.add(1, time, "OvzbquvYhSRiY9Jd18zoqqQ7fADFruJ8YNkXaoV6JbUa7jP6Q5Sl3C67EAFByzB6A0nWNIi9YHNzmcDt9wYwg0xv5uJq5texfPHw9yEOrsrIhrV5PTUSQ6WAlmuuXKVzniiEGRXJE5w6ey9BpQtxJx5IHHnUf312dcu6RtrItIMxobAoFRLKrEiLxdkhqlwrGEIsxx5znLa4T58caft4GC42ho3YOcNRmpCrZEqBp2vPM7k3dfR6esirJAs2Uq5E", "des0");
+		
+		exception.expect(IllegalArgumentException.class);	
+		myList.add(2, time, "OvzbquvYhSRiY9Jd18zoqqQ7fADFruJ8YNkXaoV6JbUa7jP6Q5Sl3C67EAFByzB6A0nWNIi9YHNzmcDt9wYwg0xv5uJq5texfPHw9yEOrsrIhrV5PTUSQ6WAlmuuXKVzniiEGRXJE5w6ey9BpQtxJx5IHHnUf312dcu6RtrItIMxobAoFRLKrEiLxdkhqlwrGEIsxx5znLa4T58caft4GC42ho3YOcNRmpCrZEqBp2vPM7k3dfR6esirJAs2Uq5E1", "des1");
+	}
+	
 	@Test
 	public void testAddNormal() {
 		
@@ -121,6 +130,20 @@ public class ToDoListImplTest {
 		assertEquals(myList.findAll().get(0).getLocation(), "loc1");
 		assertEquals(myList.findAll().get(0).getField(Field.DESCRIPTION), "desc1");
 		assertEquals(myList.findAll().get(0).getField(Field.LOCATION), "loc1");
+		
+	}
+	
+	@Test
+	public void testAddDupNullID() {
+		
+		//null
+		myList.add(null, time2, "loc1", "desc1");
+		myList.add(null, time2, "loc2", "desc2");
+		myList.add(null, time2, "loc3", "desc3");
+		
+		param.put(Field.LOCATION, "loc2");
+	//	param.put(Field.DESCRIPTION, "des6");
+		assertThat(myList.findAll(param, null, null, null, true).get(0).getID(), not(myList.findAll(null, time, time, null, false).get(2).getID()));
 		
 	}
 
@@ -223,15 +246,41 @@ public class ToDoListImplTest {
 		myList.add(5, time5, "loc5", "des5");
 		myList.add(6, time6, "loc6", "des6");
 		myList.add(7, time7, "loc7", "des7");
+		//dup in location
+		myList.add(11, time, "loc5", "des4");
+		myList.add(12, time2, "loc5", "des5");
+		myList.add(13, time3, "loc5", "des6");
+		myList.add(14, time4, "loc5", "des7");
 		
 		myList.findOne(3).complete();
 		myList.findOne(4).complete();
 		
 		
 		param.put(Field.LOCATION, "loc5");
-		param.put(Field.DESCRIPTION, "des6");
+
 		
-		assertEquals(myList.findAll(param, null, null, null, true).size(), 0);
+		for(Task t : myList.findAll(param, time4, null, null, false)) {
+			System.out.println(t.getID());
+		}
+		//original and check
+		assertEquals(myList.findAll(null, null, null, null, true).size(), 11);
+		assertEquals(myList.findAll(null, null, null, true, true).size(), 2);
+		assertEquals(myList.findAll(param, null, null, null, true).size(), 5);
+		assertEquals(myList.findAll(param, time4, null, null, true).size(), 1);
+		assertEquals(myList.findAll(param, time, time4, null, true).size(), 2);
+		
+		//original or check
+	//	assertEquals(myList.findAll(null, null, null, null, false).size(), 11);
+		assertEquals(myList.findAll(param, time4, null, null, false).size(), 7);
+		assertEquals(myList.findAll(null, time, time, null, false).size(), 9);
+		assertEquals(myList.findAll(null, time4, null, true, false).size(), 5);
+		
+		myList.findOne(12).complete();
+		
+		assertEquals(myList.findAll(param, time, time4, true, true).size(), 1);
+		
+		param.put(Field.DESCRIPTION, "des6");
+		assertEquals(myList.findAll(param, null, null, null, true).size(), 1);
 //		for(Task t : myList.findAll(param, time7, time, false, false)) {
 //			System.out.println(t.getID());
 //		}
@@ -253,7 +302,33 @@ public class ToDoListImplTest {
 		
 		myList.clear();
 		assertEquals(myList.findAll().size(), 0);
+	}
+	
+	@Test
+	public void testRemove1() {
+		myList.add(1, time, "loc1", "des1");
+		myList.add(2, time2, "loc2", "des2");
+		myList.add(3, time3, "loc3", "des3");
+		myList.add(4, time4, "loc4", "des4");
+		myList.add(5, time5, "loc5", "des5");
+		myList.add(6, time6, "loc6", "des6");
+		myList.add(7, time7, "loc7", "des7");
 		
+		myList.remove(2);
+		assertEquals(myList.findAll().size(), 6);
 	}
 
+//	@Test
+//	public void testRemove1() {
+//		myList.add(1, time, "loc1", "des1");
+//		myList.add(2, time2, "loc2", "des2");
+//		myList.add(3, time3, "loc3", "des3");
+//		myList.add(4, time4, "loc4", "des4");
+//		myList.add(5, time5, "loc5", "des5");
+//		myList.add(6, time6, "loc6", "des6");
+//		myList.add(7, time7, "loc7", "des7");
+//		
+//		myList.remove(2);
+//		assertEquals(myList.findAll().size(), 6);
+//	}
 }

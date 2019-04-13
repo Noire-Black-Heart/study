@@ -30,6 +30,16 @@ public class ToDoListImpl implements ToDoList{
 			throw new IllegalArgumentException();
 		}
 		
+		//check: null dateTime
+		if(dateTime == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		//check: illegal location
+		if(location == null || location == "" || location.length() > 256) {
+			throw new IllegalArgumentException();
+		}
+		
 		
 		//note the list has fixed id given
 		hasFixedID = true;
@@ -165,7 +175,7 @@ public class ToDoListImpl implements ToDoList{
 		if (andSearch==true)
 		{
 			taskList = findAll(from, to, completed);
-			Iterator<Task> it = taskList.iterator(); 
+		//	Iterator<Task> it = taskList.iterator(); 
 			if(params == null) {
 				//do nothing
 			}
@@ -176,6 +186,7 @@ public class ToDoListImpl implements ToDoList{
 			{
 				if (key.equals(Field.LOCATION))
 				{
+					Iterator<Task> it = taskList.iterator(); 
 					String locate = params.get(Field.LOCATION);
 					//for (Task task : taskList)
 					while(it.hasNext())
@@ -187,16 +198,17 @@ public class ToDoListImpl implements ToDoList{
 						}
 					}
 				}
-				else // key is description
+				if (key.equals(Field.DESCRIPTION)) // key is description
 				{
 					String description = params.get(Field.DESCRIPTION);
 					//for (Task task : taskList)
-					while(it.hasNext())
+					Iterator<Task> itReset = taskList.iterator(); 
+					while(itReset.hasNext())
 					{
-						String des = params.get(Field.DESCRIPTION);
-						if (it.next().getDescription() != des)
+						
+						if (itReset.next().getDescription() != description)
 						{
-							it.remove();
+							itReset.remove();
 						}
 					}
 				}
@@ -210,24 +222,71 @@ public class ToDoListImpl implements ToDoList{
 		{
 			for (Task task: taskMap.values())
 			{
-				for (Field key:params.keySet())
-				{
-					if (task.getDescription() == params.get(key) 
-					|| task.getLocation() == params.get(key) 
-					|| task.getDateTime().isAfter(from) 
-					|| task.getDateTime().isBefore(to) 
-					|| task.isCompleted()==completed
-					){
-					taskListOr.add(task);
-					break;
+				
+				//from null &&to not null
+				if(from == null) {
+					if(to != null) {
+						if(task.getDateTime().isBefore(to)) {
+							taskListOr.add(task);
+							continue;
+						}
 					}
 				}
+				
+				//from not null && to null
+				if(to == null) {
+					if(from != null) {
+						if(task.getDateTime().isAfter(from) ) {
+							taskListOr.add(task);
+							continue;
+						}
+					}
+				}
+				
+				//from not null && to not null
+				if(from != null && to != null) {
+					if(task.getDateTime().isBefore(to) || task.getDateTime().isAfter(from)) {
+						taskListOr.add(task);
+						continue;
+					}
+				}
+
+				//check completed
+				if(completed == null) {
+					//skip this
+				}
+				else if(task.isCompleted()==completed) {
+					taskListOr.add(task);
+					continue;
+				}
+				
+				//check param
+				if(params == null) {
+					//skip this
+				}
+				else {
+					for (Field key:params.keySet())
+					{
+						//check if current param is desc
+						if(task.getDescription() == params.get(key)) {
+							taskListOr.add(task);
+							break;
+						}
+						//check if current param is loc
+						if(task.getLocation() == params.get(key)) {
+							taskListOr.add(task);
+							break;
+						}
+					}
+					
+					//continue;
+				}
+
 				
 			}
 			return taskListOr;
 		}
-		
-		taskList.remove(taskList.size() -1);
+	//	taskList.remove(taskList.size() -1);
 		return taskList;
 	}
 
