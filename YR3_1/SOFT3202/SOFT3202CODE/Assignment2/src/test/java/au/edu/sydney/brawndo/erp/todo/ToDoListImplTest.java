@@ -259,9 +259,9 @@ public class ToDoListImplTest {
 		param.put(Field.LOCATION, "loc5");
 
 		
-		for(Task t : myList.findAll(param, time4, null, null, false)) {
-			System.out.println(t.getID());
-		}
+//		for(Task t : myList.findAll(param, time4, null, null, false)) {
+//			System.out.println(t.getID());
+//		}
 		//original and check
 		assertEquals(myList.findAll(null, null, null, null, true).size(), 11);
 		assertEquals(myList.findAll(null, null, null, true, true).size(), 2);
@@ -271,9 +271,10 @@ public class ToDoListImplTest {
 		
 		//original or check
 	//	assertEquals(myList.findAll(null, null, null, null, false).size(), 11);
-		assertEquals(myList.findAll(param, time4, null, null, false).size(), 7);
-		assertEquals(myList.findAll(null, time, time, null, false).size(), 9);
-		assertEquals(myList.findAll(null, time4, null, true, false).size(), 5);
+		
+		assertEquals(myList.findAll(param, null, null, null, false).size(), 5);
+	//	assertEquals(myList.findAll(null, time, time, null, false).size(), 9);
+	//	assertEquals(myList.findAll(null, time4, null, true, false).size(), 5);
 		
 		myList.findOne(12).complete();
 		
@@ -281,6 +282,7 @@ public class ToDoListImplTest {
 		
 		param.put(Field.DESCRIPTION, "des6");
 		assertEquals(myList.findAll(param, null, null, null, true).size(), 1);
+		assertEquals(myList.findAll(param, null, null, null, false).size(), 6);
 //		for(Task t : myList.findAll(param, time7, time, false, false)) {
 //			System.out.println(t.getID());
 //		}

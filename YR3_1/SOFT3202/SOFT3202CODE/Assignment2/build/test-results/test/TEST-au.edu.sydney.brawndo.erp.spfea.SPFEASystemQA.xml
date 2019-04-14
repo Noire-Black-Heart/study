@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="au.edu.sydney.brawndo.erp.spfea.SPFEASystemQA" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-04-14T13:46:21" hostname="DESKTOP-TSTP7IF" time="0.004">
+  <properties/>
+  <testcase name="test1" classname="au.edu.sydney.brawndo.erp.spfea.SPFEASystemQA" time="0.002"/>
+  <testcase name="test2" classname="au.edu.sydney.brawndo.erp.spfea.SPFEASystemQA" time="0.002"/>
+  <system-out><![CDATA[Faxing that invoice!
+Printing that invoice!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

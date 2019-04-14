@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="au.edu.sydney.brawndo.erp.todo.ToDoFactoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-04-13T06:51:59" hostname="dell-PC" time="0.001">
+<testsuite name="au.edu.sydney.brawndo.erp.todo.ToDoFactoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-04-14T13:46:21" hostname="DESKTOP-TSTP7IF" time="0.0">
   <properties/>
-  <testcase name="testMakeList" classname="au.edu.sydney.brawndo.erp.todo.ToDoFactoryTest" time="0.001"/>
+  <testcase name="testMakeList" classname="au.edu.sydney.brawndo.erp.todo.ToDoFactoryTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
