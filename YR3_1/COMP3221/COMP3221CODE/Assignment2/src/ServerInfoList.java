@@ -1,4 +1,9 @@
 import java.util.ArrayList;
+import java.io.*;
+import java.nio.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class ServerInfoList {
 
@@ -10,6 +15,18 @@ public class ServerInfoList {
 
     public void initialiseFromFile(String filename) {
         // implement your code here
+    	try {
+    	//create reader
+			BufferedReader configReader = Files.newBufferedReader(Paths.get(filename));
+		while()	
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
     }
 
     public ArrayList<ServerInfo> getServerInfos() {
@@ -22,14 +39,28 @@ public class ServerInfoList {
 
     public boolean addServerInfo(ServerInfo newServerInfo) { 
         // implement your code here
+    	serverInfos.add(newServerInfo);
+    	return true;
     }
 
     public boolean updateServerInfo(int index, ServerInfo newServerInfo) { 
         // implement your code here
+    	try {
+    	serverInfos.set(index, newServerInfo);
+    	}catch (ArrayIndexOutOfBoundsException e) {
+    		return false;
+    	}
+    	return true;
     }
     
     public boolean removeServerInfo(int index) { 
         // implement your code here
+    	try {
+        	serverInfos.remove(index);
+        	}catch (ArrayIndexOutOfBoundsException e) {
+        		return false;
+        	}
+        	return true;
     }
 
     public boolean clearServerInfo() { 
