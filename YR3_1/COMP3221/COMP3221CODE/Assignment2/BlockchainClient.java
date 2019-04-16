@@ -60,15 +60,15 @@ public class BlockchainClient {
                             pl.addServerInfo(new ServerInfo(entries[1], serverPort));
                             System.out.print("Succeeded\n\n");
                         } else {
-                        	//System.out.println("port error");
+                        	System.out.println("port error");
                            System.out.print("Failed for\n\n"); 
                         }
                     } else {
-                    	//System.out.println("3 entry not integer");
+                    	System.out.println("3 entry not integer");
                         System.out.print("Failed\n\n");
                     }
                 } else {
-                	//System.out.println("too many arguments");
+                	System.out.println("too many arguments");
                     System.out.print("Failed\n\n");
                 }
             }
@@ -111,21 +111,16 @@ public class BlockchainClient {
                         		System.out.print("Succeeded\n\n");
                         	} else {
                         		//if index doesnt exist, remove method will return false
-                        		System.out.println("index doesnt exist");
-                        		System.out.println(pl.getServerInfos());
                         		System.out.print("Failed\n\n");
                         	}
                         }
                         else {
-                        //	System.out.println("port out bound");
                            System.out.print("Failed\n\n"); 
                         }
                     } else {
-                    //	System.out.println("index port no number");
                         System.out.print("Failed\n\n");
                     }
                 } else {
-                //	System.out.println("format error");
                     System.out.print("Failed\n\n");
                 }
             }
@@ -172,11 +167,11 @@ public class BlockchainClient {
     	Thread thread = new Thread(new BlockchainClientRunnable(serverNumber, p.getHost(), p.getPort(), message));
     	thread.start();
     	
-    	long timeOut = System.currentTimeMillis() + 2000;
+    	long timeOut = System.currentTimeMillis() + 20;
         while (thread.isAlive()) {
             if (System.currentTimeMillis() > timeOut) {
             		try {
-						thread.join(1);
+						thread.join();
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

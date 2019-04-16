@@ -9,7 +9,13 @@ public class BlockchainServer {
             return;
         }
 
-        int portNumber = Integer.parseInt(args[0]);
+        int portNumber;
+        try {
+        portNumber = Integer.parseInt(args[0]);
+        } catch (NumberFormatException e) {
+        	//not a number
+        	return;
+        }
         Blockchain blockchain = new Blockchain();
 
 
@@ -37,6 +43,9 @@ public class BlockchainServer {
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		} catch(IllegalArgumentException e) {
+			//port value out of range;
+			return;
 		}
        
         
