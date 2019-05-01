@@ -113,7 +113,7 @@ public class Order66 implements Order {
         keyList.sort(Comparator.comparing(Product::getProductName).thenComparing(Product::getCost));
 
         for (Product product: keyList) {
-            sb.append("\tProduct name:");
+            sb.append("\tProduct name: ");
             sb.append(product.getProductName());
             sb.append("\tQty: ");
             sb.append(products.get(product));

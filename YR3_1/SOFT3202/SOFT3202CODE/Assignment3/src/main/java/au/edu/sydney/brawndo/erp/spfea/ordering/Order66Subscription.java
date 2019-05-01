@@ -52,7 +52,7 @@ public class Order66Subscription extends Order66 implements SubscriptionOrder {
         keyList.sort(Comparator.comparing(Product::getProductName).thenComparing(Product::getCost));
 
         for (Product product: keyList) {
-            sb.append("\tProduct name:");
+            sb.append("\tProduct name: ");
             sb.append(product.getProductName());
             sb.append("\tQty: ");
             sb.append(products.get(product));

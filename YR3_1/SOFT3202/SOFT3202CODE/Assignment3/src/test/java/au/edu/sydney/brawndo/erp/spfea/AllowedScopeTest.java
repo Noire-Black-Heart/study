@@ -197,7 +197,7 @@ public class AllowedScopeTest {
 
         assertEquals("ID:0 $1,100.00 per shipment, $1,100.00 total", order.shortDesc());
 
-        assertEquals("Your business account will be charged: $1,100.00 each week, with a total overall cost of: $11,000.00 \n" +
+        assertEquals("Your business account will be charged: $1,100.00 each week, with a total overall cost of: $11,000.00\n" +
                 "Please see your Brawndo© merchandising representative for itemised details.", order.generateInvoiceData());
 
         assertNotSame(order, order.copy());
@@ -260,7 +260,7 @@ public class AllowedScopeTest {
 
         assertEquals("ID:0 $650.00 per shipment, $650.00 total", order.shortDesc());
 
-        assertEquals("Your business account will be charged: $650.00 each week, with a total overall cost of: $6,500.00 \n" +
+        assertEquals("Your business account will be charged: $650.00 each week, with a total overall cost of: $6,500.00\n" +
                 "Please see your Brawndo© merchandising representative for itemised details.", order.generateInvoiceData());
 
         assertNotSame(order, order.copy());
@@ -364,8 +364,8 @@ public class AllowedScopeTest {
         assertEquals("Thank you for your Brawndo© order!\n" +
                 "Your order comes to: $650.00\n" +
                 "Please see below for details:\n" +
-                "\tProduct name:Fake Product\tQty: 10\tCost per unit: $100.00\tSubtotal: $1,000.00\n" +
-                "\tProduct name:Fake Product 2\tQty: 1\tCost per unit: $300.00\tSubtotal: $300.00\n", order.generateInvoiceData());
+                "\tProduct name: Fake Product\tQty: 10\tCost per unit: $100.00\tSubtotal: $1,000.00\n" +
+                "\tProduct name: Fake Product 2\tQty: 1\tCost per unit: $300.00\tSubtotal: $300.00\n", order.generateInvoiceData());
 
         assertNotSame(order, order.copy());
     }
@@ -398,8 +398,8 @@ public class AllowedScopeTest {
         assertEquals("Thank you for your Brawndo© order!\n" +
                 "Your order comes to: $650.00 each week, with a total overall cost of: $6,500.00\n" +
                 "Please see below for details:\n" +
-                "\tProduct name:Fake Product\tQty: 10\tCost per unit: $100.00\tSubtotal: $1,000.00\n" +
-                "\tProduct name:Fake Product 2\tQty: 1\tCost per unit: $300.00\tSubtotal: $300.00\n", order.generateInvoiceData());
+                "\tProduct name: Fake Product\tQty: 10\tCost per unit: $100.00\tSubtotal: $1,000.00\n" +
+                "\tProduct name: Fake Product 2\tQty: 1\tCost per unit: $300.00\tSubtotal: $300.00\n", order.generateInvoiceData());
 
         assertNotSame(order, order.copy());
     }
