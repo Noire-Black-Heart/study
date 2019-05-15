@@ -7,8 +7,7 @@ import au.edu.sydney.brawndo.erp.ordering.Customer;
 import au.edu.sydney.brawndo.erp.ordering.Order;
 import au.edu.sydney.brawndo.erp.ordering.Product;
 import au.edu.sydney.brawndo.erp.spfea.ordering.*;
-import au.edu.sydney.brawndo.erp.spfea.products.ProductDatabase;
-import au.edu.sydney.brawndo.erp.spfea.products.ProductListSingleton;
+import au.edu.sydney.brawndo.erp.spfea.products.ProductsSingleton;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -55,14 +54,39 @@ public class SPFEAFacade {
         double discountRate = 1.0 - (discountRateRaw / 100.0);
 
         Order order;
-
-        if (!TestDatabase.getInstance().getCustomerIDs(token).contains(customerID)) {
+        TestDatabase td = ConnectionPool.getConnection();
+        if (!td.getCustomerIDs(token).contains(customerID)) {
             throw new IllegalArgumentException("Invalid customer ID");
         }
-
         int id = TestDatabase.getInstance().getNextOrderID();
-
+        DiscountBean dBean = new DiscountBean();
+        dBean.setCustomerID(customerID);
+        dBean.setDate(date);
+        dBean.setDiscountRate(discountRate);
+        dBean.setDiscountThreshold(discountThreshold);
+        dBean.setId(id);
+        dBean.setBusiness(isBusiness);
+        dBean.setSubscription(isSubscription);
+        dBean.setNumShipments(numShipments);
         if (isSubscription) {
+            if (isBusiness) {
+                order = new OrderDecorator(new NewOrderImplSubscription(id, date, customerID, discountRate, numShipments),dBean,discountType);
+            } else {
+                order = new OrderDecorator(new Order66Subscription(id, date, discountRate, customerID, numShipments),dBean,discountType);
+            }
+        } else {
+            if (isBusiness) {
+                order = new OrderDecorator(new NewOrderImpl(id, date, customerID, discountRate),dBean,discountType);
+            } else {
+                order = new OrderDecorator(new Order66(id, date, discountRate, customerID),dBean,discountType);
+            }
+        }
+
+        if(((OrderDecorator) order).getRegistMap(discountType)==null){
+            return null;
+        }
+
+        /*if (isSubscription) {
             if (1 == discountType) { // 1 is flat rate
                     if (isBusiness) {
                          order = new NewOrderImplSubscription(id, date, customerID, discountRate, numShipments);
@@ -90,7 +114,7 @@ public class SPFEAFacade {
                     order = new FirstOrder(id, date, discountRate, discountThreshold, customerID);
                 }
             } else {return null;}
-        }
+        }*/
 
         TestDatabase.getInstance().saveOrder(token, order);
         return order.getOrderID();
@@ -126,10 +150,8 @@ public class SPFEAFacade {
         if (null == token) {
             throw new SecurityException();
         }
-        
-        //this line is edited, to call the singleton product list class
-        //return new ArrayList<>(ProductDatabase.getTestProducts());
-        return ProductListSingleton.getInstance();
+
+        return ProductsSingleton.getInstance();
     }
 
     public boolean finaliseOrder(int orderID, List<String> contactPriority) {
@@ -179,7 +201,9 @@ public class SPFEAFacade {
         Order order = TestDatabase.getInstance().getOrder(token, orderID);
 
         order.finalise();
-        TestDatabase.getInstance().saveOrder(token, order);
+       // TestDatabase.getInstance().saveOrder(token, order);
+        Thread t1 = new Thread(new Runable1(token,order));
+        t1.start();
         return ContactHandler.sendInvoice(token, getCustomer(order.getCustomer()), contactPriorityAsMethods, order.generateInvoiceData());
     }
 
