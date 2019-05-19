@@ -61,36 +61,69 @@ public class SPFEAFacade {
         }
 
         int id = TestDatabase.getInstance().getNextOrderID();
-
-        if (isSubscription) {
-            if (1 == discountType) { // 1 is flat rate
+        
+        //EDITED: make use of the bridge pattern, all constructors has been rewritten, and the format of if-else. 
+        
+        if (1 == discountType) {
+            if (isSubscription) { // 1 is flat rate
                     if (isBusiness) {
-                         order = new NewOrderImplSubscription(id, date, customerID, discountRate, numShipments);
+                         order = new BusinessSub(id, customerID, date, new DiscountFlat(discountThreshold, discountRate), numShipments);
                     } else {
-                        order = new Order66Subscription(id, date, discountRate, customerID, numShipments);
+                        order = new PersonalSub(id, date, new DiscountFlat(discountThreshold, discountRate), customerID, numShipments);
                     }
-                } else if (2 == discountType) { // 2 is bulk discount
+                } else { 
                     if (isBusiness) {
-                        order = new BusinessBulkDiscountSubscription(id, customerID, date, discountThreshold, discountRate, numShipments);
+                    	order = new BusinessNoSub(id, customerID, date, new DiscountFlat(discountThreshold, discountRate));
                     } else {
-                        order = new FirstOrderSubscription(id, date, discountRate, discountThreshold, customerID, numShipments);
+                    	order = new PersonalNoSub(id, date, new DiscountFlat(discountThreshold, discountRate), customerID);
                     }
-            } else {return null;}
-        } else {
-            if (1 == discountType) {
+            } 
+        } 
+        else if (2 == discountType) {// 2 is bulk discount
+            if (isSubscription) {
                 if (isBusiness) {
-                    order = new NewOrderImpl(id, date, customerID, discountRate);
+                	order = new BusinessSub(id, customerID, date, new DiscountBulk(discountThreshold, discountRate), numShipments);
                 } else {
-                    order = new Order66(id, date, discountRate, customerID);
+                	order = new PersonalSub(id, date, new DiscountBulk(discountThreshold, discountRate), customerID, numShipments);
                 }
-            } else if (2 == discountType) {
+            } else{
                 if (isBusiness) {
-                    order = new BusinessBulkDiscountOrder(id, customerID, date, discountThreshold, discountRate);
+                    order = new BusinessNoSub(id, customerID, date, new DiscountBulk(discountThreshold, discountRate));
                 } else {
-                    order = new FirstOrder(id, date, discountRate, discountThreshold, customerID);
+                    order = new PersonalNoSub(id, date, new DiscountBulk(discountThreshold, discountRate), customerID);
                 }
-            } else {return null;}
-        }
+            } 
+        } else {return null;}
+        
+//        if (isSubscription) {
+//            if (1 == discountType) { // 1 is flat rate
+//                    if (isBusiness) {
+//                         order = new BusinessSub(id, customerID, date, new DiscountFlat(discountThreshold, discountRate), numShipments);
+//                    } else {
+//                        order = new PersonalSub(id, date, new DiscountFlat(discountThreshold, discountRate), customerID, numShipments);
+//                    }
+//                } else if (2 == discountType) { // 2 is bulk discount
+//                    if (isBusiness) {
+//                        order = new BusinessSub(id, customerID, date, new DiscountBulk(discountThreshold, discountRate), numShipments);
+//                    } else {
+//                        order = new PersonalSub(id, date, new DiscountBulk(discountThreshold, discountRate), customerID, numShipments);
+//                    }
+//            } else {return null;}
+//        } else {
+//            if (1 == discountType) {
+//                if (isBusiness) {
+//                    order = new BusinessNoSub(id, customerID, date, new DiscountFlat(discountThreshold, discountRate));
+//                } else {
+//                    order = new PersonalNoSub(id, date, new DiscountFlat(discountThreshold, discountRate), customerID);
+//                }
+//            } else if (2 == discountType) {
+//                if (isBusiness) {
+//                    order = new BusinessNoSub(id, customerID, date, new DiscountBulk(discountThreshold, discountRate));
+//                } else {
+//                    order = new PersonalNoSub(id, date, new DiscountBulk(discountThreshold, discountRate), customerID);
+//                }
+//            } else {return null;}
+//        }
 
         TestDatabase.getInstance().saveOrder(token, order);
         return order.getOrderID();

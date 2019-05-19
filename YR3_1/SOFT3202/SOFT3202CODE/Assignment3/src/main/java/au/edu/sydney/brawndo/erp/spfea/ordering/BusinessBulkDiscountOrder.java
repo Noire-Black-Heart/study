@@ -13,16 +13,21 @@ public class BusinessBulkDiscountOrder implements Order {
     private final int id;
     private LocalDateTime date;
     private int customerID;
-    private double discountRate;
-    private int discountThreshold;
     private boolean finalised = false;
+    //following line is changed: 
+    protected Discount discount;
+    //private double discountRate;
+    //private int discountThreshold;
+    
 
-    public BusinessBulkDiscountOrder(int id, int customerID, LocalDateTime date, int discountThreshold, double discountRate) {
+    public BusinessBulkDiscountOrder(int id, int customerID, LocalDateTime date, Discount discount) {
         this.id = id;
         this.customerID = customerID;
         this.date = date;
-        this.discountThreshold = discountThreshold;
-        this.discountRate = discountRate;
+        //following line is changed: 
+        this.discount = discount;
+        //this.discountThreshold = discountThreshold;
+        //this.discountRate = discountRate;
     }
 
     @Override
@@ -90,16 +95,16 @@ public class BusinessBulkDiscountOrder implements Order {
     }
 
     protected double getDiscountRate() {
-        return this.discountRate;
+        return this.discount.getDiscountRate();
     }
 
     protected int getDiscountThreshold() {
-        return this.discountThreshold;
+        return this.discount.getDiscountThreshold();
     }
 
     @Override
     public Order copy() {
-        Order copy = new BusinessBulkDiscountOrder(id, customerID, date, discountThreshold, discountRate);
+        Order copy = new BusinessBulkDiscountOrder(id, customerID, date, discount);
         for (Product product: products.keySet()) {
             copy.setProduct(product, products.get(product));
         }
@@ -155,16 +160,7 @@ public class BusinessBulkDiscountOrder implements Order {
 
     @Override
     public double getTotalCost() {
-        double cost = 0.0;
-        for (Product product: products.keySet()) {
-            int count = products.get(product);
-            if (count >= discountThreshold) {
-                cost +=  count * product.getCost() * discountRate;
-            } else {
-                cost +=  count * product.getCost();
-            }
-        }
-        return cost;
+        return this.discount.getTotalCost(products);
     }
 
     protected Map<Product, Integer> getProducts() {

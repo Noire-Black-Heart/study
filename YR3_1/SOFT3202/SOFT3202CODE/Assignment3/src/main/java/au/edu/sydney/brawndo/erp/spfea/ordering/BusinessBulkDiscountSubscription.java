@@ -15,8 +15,8 @@ import java.util.Map;
 public class BusinessBulkDiscountSubscription extends BusinessBulkDiscountOrder implements SubscriptionOrder {
     private int numShipments;
 
-    public BusinessBulkDiscountSubscription(int id, int customerID, LocalDateTime date, int discountThreshold, double discountRate, int numShipments) {
-        super(id, customerID, date, discountThreshold, discountRate);
+    public BusinessBulkDiscountSubscription(int id, int customerID, LocalDateTime date, Discount discount, int numShipments) {
+        super(id, customerID, date, discount);
         this.numShipments = numShipments;
     }
 
@@ -45,7 +45,7 @@ public class BusinessBulkDiscountSubscription extends BusinessBulkDiscountOrder 
     public Order copy() {
         Map<Product, Integer> products = super.getProducts();
 
-        Order copy = new BusinessBulkDiscountSubscription(getOrderID(), getCustomer(), getOrderDate(), getDiscountThreshold(), getDiscountRate(), numShipments);
+        Order copy = new BusinessBulkDiscountSubscription(getOrderID(), getCustomer(), getOrderDate(), discount, numShipments);
         for (Product product: products.keySet()) {
             copy.setProduct(product, products.get(product));
         }
