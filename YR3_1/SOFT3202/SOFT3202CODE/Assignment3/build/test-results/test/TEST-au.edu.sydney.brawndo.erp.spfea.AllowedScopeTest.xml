@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2019-05-20T03:28:11" hostname="dell-PC" time="85.932">
+<testsuite name="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2019-05-20T04:50:35" hostname="dell-PC" time="82.668">
   <properties/>
-  <testcase name="testOrderBusinessBulk" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="3.35"/>
-  <testcase name="testOrderBusinessBulkSub" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.01"/>
-  <testcase name="testOrderBusinessFlat" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.007"/>
-  <testcase name="testOrderBusinessFlatSub" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.007"/>
-  <testcase name="testOrderPersonalBulk" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.01"/>
-  <testcase name="testOrderPersonalBulkSub" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.014"/>
-  <testcase name="testOrderPersonalFlat" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.008"/>
-  <testcase name="testOrderPersonalFlatSub" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.008"/>
-  <testcase name="getAllCustomerIDs" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.318"/>
-  <testcase name="getOrderTotalCost" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.034"/>
-  <testcase name="getOrderShortDesc" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.009"/>
-  <testcase name="getKnownContactMethods" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.007"/>
-  <testcase name="login" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.006"/>
-  <testcase name="getAllOrders" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.003"/>
-  <testcase name="createOrder" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.003"/>
-  <testcase name="getCustomer" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.012"/>
-  <testcase name="removeOrder" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.007"/>
-  <testcase name="getAllProducts" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="82.079"/>
-  <testcase name="finaliseOrder" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.022"/>
+  <testcase name="login" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="5.85"/>
+  <testcase name="getAllOrders" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.238"/>
+  <testcase name="createOrder" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="1.273"/>
+  <testcase name="getCustomer" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.008"/>
+  <testcase name="removeOrder" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.006"/>
+  <testcase name="getAllProducts" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="73.969"/>
+  <testcase name="finaliseOrder" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.023"/>
   <testcase name="logout" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.002"/>
-  <testcase name="orderLineSet" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.001"/>
-  <testcase name="getOrderLongDesc" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.002"/>
+  <testcase name="orderLineSet" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.002"/>
+  <testcase name="getOrderLongDesc" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.003"/>
+  <testcase name="testOrderBusinessBulk" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="1.139"/>
+  <testcase name="testOrderBusinessBulkSub" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.01"/>
+  <testcase name="testOrderBusinessFlat" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.013"/>
+  <testcase name="testOrderBusinessFlatSub" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.008"/>
+  <testcase name="testOrderPersonalBulk" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.014"/>
+  <testcase name="testOrderPersonalBulkSub" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.012"/>
+  <testcase name="testOrderPersonalFlat" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.008"/>
+  <testcase name="testOrderPersonalFlatSub" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.006"/>
+  <testcase name="getAllCustomerIDs" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.075"/>
+  <testcase name="getOrderTotalCost" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.002"/>
+  <testcase name="getOrderShortDesc" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.002"/>
+  <testcase name="getKnownContactMethods" classname="au.edu.sydney.brawndo.erp.spfea.AllowedScopeTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
