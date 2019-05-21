@@ -18,17 +18,10 @@ public class HeartBeat implements Runnable {
 	}
 	
 	public void setNewServerStatus(ConcurrentHashMap<ServerInfo, Date> serverStatus) {
-//		this.serverStatus = new ConcurrentHashMap<ServerInfo, Date>();
-//		for (ServerInfo x : serverStatus.keySet()) {
-//			Date y = serverStatus.get(x);
-//			this.serverStatus.put(x, y);
-//		}
+
 		this.serverStatus = serverStatus;
 	}
 	
-//	public void addServerStatus(ServerInfo serverInfo, Date date) {
-//		serverStatus.put(serverInfo, date);
-//	}
 	
 	public void setPortNumber(int portNumber) {
 		this.portNumber = portNumber;
