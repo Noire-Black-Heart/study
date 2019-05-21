@@ -1,6 +1,8 @@
 import java.io.*;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,12 +40,40 @@ public class BlockchainServer {
         try {
             serverSocket = new ServerSocket(localPort);
             
-            // create new heart beat thread
-            Thread heartBeat = new Thread(new PeriodicHeartBeatRunnable(serverStatus, localPort));
-            heartBeat.start();
             
+            //create new server removal thread
+            Thread serverRemoval = new Thread(new HeartBeatServerRemoval(serverStatus));
+            serverRemoval.start();
             
+            //create new heart beat sender thread
+            Thread heartBeatSender = new Thread(new PeriodicHeartBeatRunnable(serverStatus, localPort));
+            heartBeatSender.start();
+            
+            //create new last block sender thread
+            Thread lastBlockSender = new Thread(new LastBlockSender(serverStatus, blockchain, localPort));
+       		lastBlockSender.start();
+       		
+            //initial catchup
+            try {
+            	
+                //create a new socket to init catchup
+                Socket socket = new Socket();
+                socket.connect(new InetSocketAddress(remoteHost, remotePort), 2000);
 
+                //send the message forward
+                PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
+                pw.print("cu\n");
+                pw.flush();
+                
+                //close printWriter and socket
+                pw.close();
+                socket.close();
+                
+            } catch (IOException e) {
+                
+            }
+       		
+            
             while (true) {
                 Socket clientSocket = serverSocket.accept();
                 new Thread(new BlockchainServerRunnable(clientSocket, blockchain, serverStatus, localPort)).start();
