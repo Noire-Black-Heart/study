@@ -16,13 +16,13 @@ public class HeartBeatClientRunnable implements Runnable{
     @Override
     public void run() {
         try {
-            // create socket with a timeout of 2 seconds
+            //create socket with a timeout of 2 seconds
             Socket toServer = new Socket();
             toServer.connect(new InetSocketAddress(server.getHost(), server.getPort()), 2000);
             PrintWriter printWriter = new PrintWriter(toServer.getOutputStream(), true);
 
             // send the message forward
-            printWriter.println(message + "\n");
+            printWriter.println(message);
             printWriter.flush();
 
             // close printWriter and socket

@@ -7,7 +7,7 @@ public class PeriodicHeartBeatRunnable implements Runnable {
 
     private ConcurrentHashMap<ServerInfo, Date> serverStatus;
     private int sequenceNumber;
-    private int portNumber;
+    private int portNumber; 
 
     public PeriodicHeartBeatRunnable(ConcurrentHashMap<ServerInfo, Date> serverStatus, int portNumber) {
         this.serverStatus = serverStatus;
@@ -23,6 +23,9 @@ public class PeriodicHeartBeatRunnable implements Runnable {
             // broadcast HeartBeat message to all peers
             ArrayList<Thread> threadArrayList = new ArrayList<>();
             for (ServerInfo server : serverStatus.keySet()) {
+                if(server.getPort() == portNumber){
+                    continue;
+                }
                 Thread thread = new Thread(new HeartBeatClientRunnable(server, "hb|" + portNumber + "|" + sequenceNumber));
                 threadArrayList.add(thread);
                 thread.start();
