@@ -1,0 +1,24 @@
+effective:                                                                      water bottle ( storage) 
+efficient:                                                    mechanical pencil                    
+safe:                              running caution           safety belt                      
+utility:                                           swiss army knife(easiest to think of) 
+learnability: touchscreen google   PS
+memorability:               wii games            PS
+
+
+
+GOMS: goals: describe user's ultimate goals
+, operators:  elementary use	r action (press button), measure in time duration
+, methods:  learned procedure for a goal(sequence of actions) 
+, selection rules: decides which method to select when there is more than 1
+
+eg google search
+goal: to search stuff
+operator: move mouse, press keyboard, press mouse button
+method: open browser, move mouse to input, input search key, press enter, profit
+selection rule: the method that costs fewer time
+
+
+
+
+remote controller
