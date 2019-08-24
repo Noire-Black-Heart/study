@@ -1,0 +1,485 @@
+import java.io.IOException;
+import java.io.*;
+import java.util.*;
+
+/**
+ * Maze Game Class.
+ *
+ * INFO1103 Assignment 2, Semester 1, 2017.
+ *
+ * The Maze Game.
+ * In this assignment you will be designing a maze game.
+ * You will have a maze board and a player moving around the board.
+ * The player can step left, right, up or down.
+ * However, you need to complete the maze within a given number of steps.
+ *
+ * As in any maze, there are walls that you cannot move through. If you try to
+ * move through a wall, you lose a life. You have a limited number of lives.
+ * There is also gold on the board that you can collect if you move ontop of it.
+ *
+ * Please implement the methods provided, as some of the marks are allocated to
+ * testing these methods directly.
+ *
+ * @author YOU :)
+ * @date April, 2017
+ *
+ */
+public class MazeGame {
+    /* You can put variables that you need throughout the class up here.
+     * You MUST INITIALISE ALL of these class variables in your initialiseGame
+     * method.
+     */
+
+    // A sample variable to show you can put variables here.
+    // You would initialise it in initialiseGame method.
+    // e.g. Have the following line in the initialiseGame method.
+    // sampleVariable = 1;
+	static int lives;
+	static int steps;
+	static int gold;
+	static int rows;
+	static String[] board;
+	static char[][] place; // The maze board.
+
+
+    /**
+     * Initialises the game from the given configuration file.
+     * This includes the number of lives, the number of steps, the starting gold
+     * and the board.
+     *
+     * If the configuration file name is "DEFAULT", load the default
+     * game configuration.
+     *
+     * NOTE: Please also initialise all of your class variables.
+     *
+     * @args configFileName The name of the game configuration file to read from.
+     * @throws IOException If there was an error reading in the game.
+     *         For example, if the input file could not be found.
+     */
+    public static void initialiseGame(String configFileName) throws IOException {
+		File configFile = new File(configFileName);
+	
+			Scanner config = new Scanner(configFile);
+			lives = config.nextInt();
+			steps = config.nextInt();
+			gold = config.nextInt();
+			rows = config.nextInt();
+		
+			int x=0, i=0, j=0;
+			board = new String[rows];
+			config.nextLine();
+			while(config.hasNextLine()){				
+				board[x] = config.nextLine();
+				//System.out.println(board[x]);				
+				x++;
+			}
+		
+		
+			place = new char[rows][board[0].length()];
+			for(i=0;i<rows;i++){
+				for(j=0;j<board[i].length();j++){
+						place[i][j] = board[i].charAt(j);
+						//System.out.print(place[i][j]);		
+				}
+				//System.out.println();
+			}
+			
+			config.close();
+		
+        // TODO: Implement this method.
+    }
+
+    /**
+     * Save the current board to the given file name.
+     * Note: save it in the same format as you read it in.
+     * That is:
+     *
+     * <number of lives> <number of steps> <amount of gold> <number of rows on the board>
+     * <BOARD>
+     *
+     * @args toFileName The name of the file to save the game configuration to.
+     * @throws IOException If there was an error writing the game to the file.
+     */
+    public static void saveGame(String toFileName) throws IOException {
+		File save = new File(toFileName);
+		int i, j;
+		PrintWriter output = new PrintWriter(save);
+		output.printf("%d ",lives);
+		output.printf("%d ", steps);
+		output.printf("%d ", gold);
+		output.println(rows);
+		
+		for(i=0;i<rows;i++){
+				for(j=0;j<board[i].length();j++){
+						place[i][j] = board[i].charAt(j);
+						output.print(place[i][j]);		
+				}
+				output.println();
+			}
+		System.out.printf("Successfully saved the current game configuration to '%s'.", toFileName);
+        // TODO: Implement this method.
+    }
+
+    /**
+     * Gets the current x position of the player.
+     *
+     * @return The players current x position.
+     */
+    public static int getCurrentXPosition() {
+		int i,j;
+		for(i=0;i<rows;i++){
+				for(j=0;j<board[i].length();j++){
+						if(place[i][j]=='&'){
+							return i;
+						}
+				}
+		}
+        // TODO: Implement this method.
+		return 0;
+    }
+
+    /**
+     * Gets the current y position of the player.
+     *
+     * @return The players current y position.
+     */
+    public static int getCurrentYPosition() {
+		int i,j;
+		for(i=0;i<rows;i++){
+				for(j=0;j<board[i].length();j++){
+						if(place[i][j]=='&'){
+							return j;
+						}
+				}
+		}
+		return 0;
+        // TODO: Implement this method.
+    }
+
+    /**
+     * Gets the number of lives the player currently has.
+     *
+     * @return The number of lives the player currently has.
+     */
+    public static int numberOfLives() {
+		int i = lives;
+        // TODO: Implement this method.
+        return i;
+    }
+
+    /**
+     * Gets the number of remaining steps that the player can use.
+     *
+     * @return The number of steps remaining in the game.
+     */
+    public static int numberOfStepsRemaining() {
+		int i = steps;
+        // TODO: Implement this method.
+        return i;
+    }
+
+    /**
+     * Gets the amount of gold that the player has collected so far.
+     *
+     * @return The amount of gold the player has collected so far.
+     */
+    public static int amountOfGold() {
+		int i = gold;
+        // TODO: Implement this method.
+        return i;
+    }
+
+
+    /**
+     * Checks to see if the player has completed the maze.
+     * The player has completed the maze if they have reached the destination.
+     *
+     * @return True if the player has completed the maze.
+     */
+    public static boolean isMazeCompleted() {
+        // TODO: Implement this method.
+		int i,j;
+		for(i=0;i<rows;i++){
+				for(j=0;j<board[i].length();j++){
+						if(place[i][j]=='@'){
+							return false;
+						}
+				}
+		}
+		return true;
+    }
+
+    /**
+     * Checks to see if it is the end of the game.
+     * It is the end of the game if one of the following conditions is true:
+     *  - There are no remaining steps.
+     *  - The player has no lives.
+     *  - The player has completed the maze.
+     *
+     * @return True if any one of the conditions that end the game is true.
+     */
+    public static boolean isGameEnd() {
+		if(lives<1 || steps<1 || isMazeCompleted() == true){
+			return true;
+		}else{return false;}
+        // TODO: Implement this method.
+    }
+
+    /**
+     * Checks if the coordinates (x, y) are valid.
+     * That is, if they are on the board.
+     *
+     * @args x The x coordinate.
+     * @args y The y coordinate.
+     * @return True if the given coordinates are valid (on the board),
+     *         otherwise, false (the coordinates are out or range).
+     */
+    public static boolean isValidCoordinates(int x, int y) {
+		if(x <= rows && y <= board[0].length()){
+			return true;
+		}else{
+			return false;
+		}
+        // TODO: Implement this method.
+    }
+
+    /**
+     * Checks if a move to the given coordinates is valid.
+     * A move is invalid if:
+     *  - It is move to a coordinate off the board.
+     *  - There is a wall at that coordinate.
+     *  - The game is ended.
+     *
+     * @args x The x coordinate to move to.
+     * @args y The y coordinate to move to.
+     * @return True if the move is valid, otherwise false.
+     */
+    public static boolean canMoveTo(int x, int y) {
+        // TODO: Implement this method.
+		
+			if(place[x][y] == '#' ||isValidCoordinates(x, y)==false ||isGameEnd()==true ){
+				return false;
+			}else{return true;}
+		       
+    }
+
+    /**
+     * Move the player to the given coordinates on the board.
+     * After a successful move, it prints "Moved to (x, y)."
+     * where (x, y) were the coordinates given.
+     *
+     * If there was gold at the position the player moved to,
+     * the gold should be collected and the message "Plus n gold."
+     * should also be printed, where n is the amount of gold collected.
+     *
+     * If it is an invalid move, a life is lost.
+     * The method prints: "Invalid move. One life lost."
+     *
+     * @args x The x coordinate to move to.
+     * @args y The y coordinate to move to.
+     */
+    public static void moveTo(int x, int y) {
+        // TODO: Implement this method.
+		if(canMoveTo(x, y)==false){
+			System.out.println("Invalid move. One life lost.");
+			lives--;
+			steps--;
+		}else{	
+				int i,j;
+				System.out.printf("Moved to (%d, %d).", x, y);
+
+				place[getCurrentXPosition()][getCurrentYPosition] = '.';
+				
+				if(place[x][y]=='0'){System.out.printf("Plus 0 gold.");}
+				else if(place[x][y]=='1'){
+					gold = gold + 1;
+					System.out.printf("Plus 1 gold."); }
+				else if(place[x][y]=='2'){
+					gold = gold + 2;
+					System.out.printf("Plus 2 gold."); }
+				else if(place[x][y]=='3'){
+					gold = gold + 3;
+					System.out.printf("Plus 3 gold."); }
+				else if(place[x][y]=='4'){
+					gold = gold + 4;
+					System.out.printf("Plus 4 gold."); }
+				else if(place[x][y]=='5'){
+					gold = gold + 5;
+					System.out.printf("Plus 5 gold."); }
+				else if(place[x][y]=='6'){
+					gold = gold + 6;
+					System.out.printf("Plus 6 gold."); }
+				else if(place[x][y]=='7'){
+					gold = gold + 7;
+					System.out.printf("Plus 7 gold."); }
+				else if(place[x][y]=='8'){
+					gold = gold + 8;
+					System.out.printf("Plus 8 gold."); }
+				else if(place[x][y]=='9'){
+					gold = gold + 9;
+					System.out.printf("Plus 9 gold."); }
+			
+				place[x][y]='&';
+				steps--;
+			}
+    }
+
+    /**
+     * Prints out the help message.
+     */
+    public static void printHelp() {
+		System.out.println("Usage: You can type one of the following commands.");
+		System.out.println("help         Print this help message.");
+		System.out.println("board        Print the current board.");
+		System.out.println("status       Print the current status.");
+		System.out.println("left         Move the player 1 square to the left.");
+		System.out.println("right        Move the player 1 square to the right.");
+		System.out.println("up           Move the player 1 square up.");
+		System.out.println("down         Move the player 1 square down.");
+		System.out.println("save <file>  Save the current game configuration to the given file.");
+        // TODO: Implement this method.
+    }
+
+    /**
+     * Prints out the status message.
+     */
+    public static void printStatus() {
+		System.out.println("Number of live(s): " + lives);
+		System.out.println("Number of step(s) remaining: " + steps);
+		System.out.println("Amount of gold: " + gold);
+        // TODO: Implement this method.
+    }
+
+    /**
+     * Prints out the board.
+     */
+    public static void printBoard() {
+        // TODO: Implement this method.
+		int i,j;
+		for(i=0;i<rows;i++){
+				for(j=0;j<board[i].length();j++){
+						place[i][j] = board[i].charAt(j);
+						System.out.print(place[i][j]);		
+				}
+				System.out.println();
+			}
+    }
+
+    /**
+     * Performs the given action by calling the appropriate helper methods.
+     * [For example, calling the printHelp() method if the action is "help".]
+     *
+     * The valid actions are "help", "board", "status", "left", "right",
+     * "up", "down", and "save".
+     * [Note: The actions are case insensitive.]
+     * If it is not a valid action, an IllegalArgumentException should be thrown.
+     *
+     * @args action The action we are performing.
+     * @throws IllegalArgumentException If the action given isn't one of the
+     *         allowed actions.
+     */
+    public static void performAction(String action) throws IllegalArgumentException {
+    	
+    	action = action.toLowerCase();
+    	
+    	if(action.equals("help")){
+    		printHelp();
+    	}else if(action.equals("board")){
+    		printBoard();
+    	}else if(action.equals("status")){
+    		printStatus();
+    		
+    	}else if(action.equals("left")){
+    		moveTo(getCurrentXPosition() -1, getCurrentYPosition);
+    	}else if(action.equals("right")){
+    		moveTo(getCurrentXPosition() +1, getCurrentYPosition);
+    	}else if(action.equals("up")){
+    		moveTo(getCurrentXPosition(), getCurrentYPosition -1);
+    	}else if(action.equals("down")){
+    		moveto(getCurrentXPosition(), getCurrentYPosition +1);
+    	}
+        // TODO: Implement this method.
+    	else if(action.equals("save")){
+    		Scanner scan = new Scanner(System.in);
+    		String fileName = scan.next();
+    		try{saveGame(fileName);
+    		}catch(IOException e){System.out.printf("Error: Could not save the current game configuration to '%s'.\n", fileName);
+    	}
+    	return 0;
+    }
+
+    /**
+     * The main method of your program.
+     *
+     * @args args[0] The game configuration file from which to initialise the
+     *       maze game. If it is DEFAULT, load the default configuration.
+     */
+    public static void main(String[] args) {
+        // Run your program (reading in from args etc) from here.
+		
+		//print error message if there's incorrect args given
+		if(args.length < 1){
+			System.out.printf("Error: Too few arguments given. Expected 1 argument, found 0.\nUsage: MazeGame [<game configuration file>|DEFAULT]");
+			return;
+		}else if(args.length > 1){
+			System.out.printf("Error: Too many arguments given. Expected 1 argument, found %d.\nUsage: MazeGame [<game configuration file>|DEFAULT]", args.length);
+			return;
+		}
+		
+		//initialise the game
+		try{
+			initialiseGame(args[0]);
+		}catch(IOException e){
+			System.out.printf("Error: Could not load the game configuration from '%s'.", args[0]);
+			return;
+		}
+		
+		Scanner input = new Scanner(System.in);
+		
+		while(true){
+			
+			String action = input.next();
+			
+			try{
+				performAction(action);
+			}catch(IllegalArgumentException e){
+				System.out.printf("Error: Could not find command '%s'.\n", action);
+				System.out.printf("To find the list of valid commands, please type 'help'.\n");
+			}
+			
+			//check current w/l status
+			
+				//lose situation
+			if(isGameEnd()==true && isMazeCompleted()==false){
+				if(lives < 1 && steps < 1){
+					System.out.printf("Oh no! You have no lives and no steps left.\n");
+				}else if(lives > 0){
+					System.out.printf("Oh no! You have no steps left.\n");
+				}else{
+					System.out.printf("Oh no! You have no lives left.\n");
+				}
+				System.out.printf("Better luck next time!\n");
+				return;
+			}
+			
+				//win situation
+			if(isMazeCompleted()==true){
+				System.out.printf("Congratulations! You completed the maze!\n");
+				System.out.printf("Your final status is:\n");
+				System.out.printf("Number of live(s): %d\n", lives);
+				System.out.printf("Number of step(s) remaining: %d\n", steps);
+				System.out.printf("Amount of gold: %d\n", gold);
+				return;
+			}
+			
+			
+			
+		
+			
+		}
+		
+		
+		
+    }
+
+}
