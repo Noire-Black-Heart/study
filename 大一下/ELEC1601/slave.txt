@@ -1,0 +1,111 @@
+#include <SoftwareSerial.h>   //Software Serial Port
+#include <Servo.h>
+
+#define RxD 7
+#define TxD 6
+
+#define DEBUG_ENABLED  1
+
+SoftwareSerial blueToothSerial(RxD,TxD);
+
+  float temp = 0;
+  int val = 0;
+  int analogpin = 3;
+  //int motorpin = 9;
+
+  Servo servoLeft;
+  Servo servoRight;
+  
+void setup() 
+{ 
+  Serial.begin(9600);
+  pinMode(RxD, INPUT);
+  pinMode(TxD, OUTPUT);
+  setupBlueToothConnection();
+  //wait 1s and flush the serial and btooth buffers
+  delay(5000);
+  Serial.flush();
+  blueToothSerial.flush();
+
+  //setup the motor
+ // pinMode(motorpin, OUTPUT);
+
+} 
+
+void loop() 
+{ 
+  char revchar;
+  // Infinite loop
+  while(1){
+    // If there is data ready in the btooth
+    if(blueToothSerial.available())
+    {
+      revchar = blueToothSerial.read();
+      Serial.print(revchar);
+      //movement control
+
+       servoLeft.attach(10);
+       servoRight.attach(12);
+  
+     if(revchar == 'w'){
+        servoLeft.writeMicroseconds(1700);
+        servoRight.writeMicroseconds(1300);
+        delay(500);
+         servoLeft.detach();                 // Stop sending servo signals
+    servoRight.detach();
+     }else if(revchar == 's'){
+        servoLeft.writeMicroseconds(1300);
+        servoRight.writeMicroseconds(1700);
+        delay(500);
+         servoLeft.detach();                 // Stop sending servo signals
+    servoRight.detach();
+     }else if(revchar == 'a'){
+        servoLeft.writeMicroseconds(1700);
+        servoRight.writeMicroseconds(1700);
+         delay(500);
+          servoLeft.detach();                 // Stop sending servo signals
+    servoRight.detach();
+     }else if(revchar == 'd'){
+        servoLeft.writeMicroseconds(1300);
+        servoRight.writeMicroseconds(1300);
+         delay(500);
+          servoLeft.detach();                 // Stop sending servo signals
+    servoRight.detach();
+     }
+     
+    } 
+    // Read value from sensor and turn it into temperatue
+      val = analogRead(analogpin);
+      temp = (5.0 * val * 100.0) / 1024;
+     
+      // Send back
+      blueToothSerial.println(temp);
+       Serial.print("Slave Transmitted: ");
+       Serial.print(temp);
+       Serial.print("\n");
+
+      // move the motor to disperse water if temperature high than certain value
+//      if(temp > 35){
+//        analogWrite(motorpin, 200);
+//        delay(1000);
+//      }
+  }
+} 
+
+void setupBlueToothConnection()
+{
+  //Set BluetoothBee BaudRate to default baud rate 38400
+  blueToothSerial.begin(38400);
+  //set the bluetooth work in slave mode
+  blueToothSerial.print("\r\n+STWMOD=0\r\n");
+  //set the bluetooth name (irrelevant)
+  blueToothSerial.print("\r\n+STNA=Slave20\r\n"); 
+  // Permit Paired device to connect me
+  blueToothSerial.print("\r\n+STOAUT=1\r\n");
+  // Auto-connection is not allowed
+  blueToothSerial.print("\r\n+STAUTO=0\r\n"); 
+  delay(2000); // This delay is required.
+  //make the slave bluetooth inquirable 
+  blueToothSerial.print("\r\n+INQ=1\r\n");
+  delay(2000); // This delay is required.
+}

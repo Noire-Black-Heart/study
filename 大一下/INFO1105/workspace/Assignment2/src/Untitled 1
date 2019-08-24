@@ -1,0 +1,11 @@
+public static String tree2infix(linkedBinaryTree<String>tree
+{
+	//base cases
+	
+	
+	
+	//recursive cases
+	string result : (, solution, middle sign, solution, )
+	concatenate "(", tree2infix(left), "mid", tree2infix(right), ")"
+	
+	
