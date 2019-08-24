@@ -1,0 +1,3 @@
+src/main/pipez/IdentityPipe.java merge=tutes
+src/main/pipez/SamplePipeline.java merge=tutes
+src/main/pipez/TruIdentityPipe.java merge=tutes
