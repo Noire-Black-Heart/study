@@ -13,9 +13,19 @@ public class TransferMoney implements Runnable {
                 System.err.println("Already interrupted.");
             }
             System.out.println("Acquiring first lock on (" + from.hashCode() + ")");
-            from.lock.lock();
+            if(from.hashCode() > to.hashCode()) {
+            	from.lock.lock();
+            	to.lock.lock();
+            }
+            else {
+            	to.lock.lock();
+            	from.lock.lock();
+            }
+            //from.lock.lock();
             System.out.println("Acquiring second lock on (" + to.hashCode() + ")");
-            to.lock.lock();
+            //to.lock.lock();
+           // if()
+            
             System.out.println("Transferring money from (" + from.hashCode() + ") to (" + to.hashCode() + ")");
             from.subtractMoney(1000);
             to.addMoney(1000);
