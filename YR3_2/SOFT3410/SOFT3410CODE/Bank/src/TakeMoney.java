@@ -10,7 +10,9 @@ public class TakeMoney implements Runnable {
  } catch (Exception e) {
  System.err.println("Already interrupted.");
  }
+ account.lock.lock();
  account.subtractMoney(1000);
+ account.lock.unlock();
  }
  }
  }

@@ -1,0 +1,57 @@
+DM principle for the word interface: 
+1. transparency scroll bar menu as reversible
+2. immediate feedback 
+3. reversible back up
+4. cursor operation for all actions 
+5. continues representation of the menu and board
+6. thumbnails, toolbar for continues representation
+7. keyboard shortcuts for physical input
+8. 
+disadvantage: tools and board taking up all the space
+
+ benefits: ez to learn; experts can work rapidly; what you see is what you get; no need of error messages; user get sense of confidance and mastery. 
+
+problems: not good for vision-impaired user; consume lots of space; user still have to learn graphical representations; may cost longer time for experts than command line; difficult on small screens
+
+
+
+2. WIMP Paradigm
+
+1. windows: 
+	issue: 1) how to switch between screens/monitors
+	2) design principle of spacing, grouping, simplicity should be used
+	3) how to switch attention between windows without distracted
+
+
+
+
+
+
+3. interface types
+	web interface: structured like web apps. eg: google doc
+
+	multimedia interface: combine different media within single 		interface; link them together with interactivity. 
+	
+	mobile interface: limited screen size; 
+
+	pen-based interface: pen input has higher resolution and is able to 	capture pressure; combine with touch - pen write, touch control. 
+
+	gesture interface: use body movement for interactivite. 
+
+	AR: 
+
+	wearables: paired with AR
+
+	brain computer interface(BCI) : 
+
+
+
+
+
+
+
+
+
+
+
+

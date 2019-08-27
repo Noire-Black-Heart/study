@@ -1,0 +1,10 @@
+name, energy_cost, usage_hour
+refrigerator, 6.0, 2
+microwave, 4.0, 2
+
+
+ 
+ ArithmeticPipe ap = ArithmeticPipe.create(
+			 Mult("C2", 2.0), Mult("C3", 2.0));
+			 
+			 

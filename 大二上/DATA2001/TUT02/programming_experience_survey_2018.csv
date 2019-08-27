@@ -1,0 +1,70 @@
+respondent_id,submitted,Tutorial Class,Degree,Year,Programming Experience,Experience in Pyhton,Jupyter Notebooks,Other Programming Languages Competency,SQL Competency,Relational Databases Competency,Students' Expectation
+1,2018-03-13 23:41:57 UTC,Lab Room 115?,BSc Computer Science,1,3,Basic understanding,No,"C#,Java,Javascript/ECMAScript,Matlab",Written some SQL queries already.,"Microsoft SQL Server,MySQL",
+2,2018-03-13 23:10:15 UTC,"Monday 4 p.m. to 6 p.m., weeks 2-13 of semester 1 in SIT Lab 118",BSc Computer Science+Economics,1,1.5,None,No,"C,Java,Other (answer below in comment)","Heard of it, but never used it.",,Bash
+3,2018-03-13 23:08:58 UTC,12-14 pm tuesday,BSc Applied Math,3,0.5,Basic understanding,Yes,"Matlab,R",Never heard of SQL.,,
+4,2018-03-13 17:30:41 UTC,Tue 12pm,BSc Computer Science,4,3,None,No,R,Written some SQL queries already.,PostgreSQL,
+5,2018-03-13 09:37:31 UTC,,BSc Computer Science,1,,,,"C,Java,Javascript/ECMAScript,Matlab",Can interpret some SQL statements.,,
+6,2018-03-13 04:14:01 UTC,T14B,BSc Computer Science,1,1,Basic understanding,No,Visual Basic,Can interpret some SQL statements.,SQLite,Would like to learn about analysing datasets and representing them visually.
+7,2018-03-13 04:09:45 UTC,sit116 2pm- 4pm,BSc Advanced Computing+Commerce,2,1,Competent Python programmer (familiar with eg. functions and classes),Yes,"Java,Matlab,R",Never heard of SQL.,Other (answer as comment below),
+8,2018-03-13 03:45:04 UTC,T14C,BSc Information Studies,3,1,None,No,R,"Heard of it, but never used it.",,
+9,2018-03-13 03:33:44 UTC,T14C,BSc Economics+Data Science+International Affair,3,0.5,None,No,Other (answer below in comment),Written some SQL queries already.,"Microsoft Access,SQLite",I know basic R.
+10,2018-03-13 03:33:09 UTC,T14A,BSc Information Technology,3,4,Written some simple Python programs,No,"C,Java",Written some SQL queries already.,PostgreSQL,
+11,2018-03-13 03:17:19 UTC,T14C,BSc Computer Science,3,10,None,No,Java,Can already create tables and write complex SQL queries.,"Microsoft Access,Microsoft SQL Server,Oracle,PostgreSQL",
+12,2018-03-13 03:16:32 UTC,T14C,BSc Computer Science,2,1,Basic understanding,No,Java,Can interpret some SQL statements.,PostgreSQL,
+13,2018-03-13 03:15:51 UTC,114,BSc Information Science,1,2,None,No,"Java,Javascript/ECMAScript,Ruby",Can interpret some SQL statements.,MySQL,
+14,2018-03-13 03:15:41 UTC,T14B,BSc Computer Science,2,1,None,No,"Java,R","Heard of it, but never used it.",MySQL,"I have never learnt Python and SQL, and knew very little about the database.
+
+I would like to learn basic knowledge of python and SQL. Well, I need much help."
+15,2018-03-13 03:13:48 UTC,T14C,BSc Computer Science,2,1,None,No,Java,"Heard of it, but never used it.",,
+16,2018-03-13 03:13:47 UTC,T14C,BSc Computer Science,1,1,Basic understanding,No,R,"Heard of it, but never used it.",,"I expect to learn how to use SQL, and Python for data analysis"
+17,2018-03-13 03:13:37 UTC,C,BSc Computer Science,1,3,Have written complex Python programs already.,No,"Java,Javascript/ECMAScript,R",Can already create tables and write complex SQL queries.,"MySQL,PostgreSQL",
+18,2018-03-13 03:13:30 UTC,T14C,BSc Computer Science,3,3,Competent Python programmer (familiar with eg. functions and classes),No,"C,C++,Java,Javascript/ECMAScript,Matlab,Other (answer below in comment)",Written some SQL queries already.,"Microsoft Access,MySQL,PostgreSQL",HTML language
+19,2018-03-13 03:13:21 UTC,T14B,BSc Computer Science,3,3,Written some simple Python programs,No,"C,Java",Can already create tables and write complex SQL queries.,PostgreSQL,
+20,2018-03-13 03:13:20 UTC,T14A,BSc Computer Science,2,4,Written some simple Python programs,Yes,"Java,R","Heard of it, but never used it.",,
+21,2018-03-13 03:13:19 UTC,T14C,BSc Advanced Studies,2,2,Competent Python programmer (familiar with eg. functions and classes),Yes,"Java,Javascript/ECMAScript,Matlab,R",Can already create tables and write complex SQL queries.,"MySQL,Oracle,SQLite","I expect this unit to provide various, time-efficient methods for me to inspect, analyse, and infer from very large datasets. Previous analyses I have done of large datasets have involved... long waiting times."
+22,2018-03-13 03:13:04 UTC,T14C,BSc Mechatronics+Maths,1,8,Basic understanding,No,"C,C++,C#,Matlab,R,Visual Basic",Can interpret some SQL statements.,MySQL,
+23,2018-03-13 03:12:52 UTC,T14C,BSc Computer Science,2,2,Basic understanding,No,Java,Can interpret some SQL statements.,"MySQL,PostgreSQL",no
+24,2018-03-13 03:12:35 UTC,T14C,BSc Computer Science,3,1.5,Basic understanding,No,Java,Written some SQL queries already.,"MySQL,PostgreSQL",
+25,2018-03-13 03:12:34 UTC,room 116,BSc Software Engg,2,1,Written some simple Python programs,No,Java,Can interpret some SQL statements.,MySQL,
+26,2018-03-13 03:12:27 UTC,t14c,BSc Advanced Computing,2,1.0001,Competent Python programmer (familiar with eg. functions and classes),No,Java,Written some SQL queries already.,MySQL,
+27,2018-03-13 03:12:19 UTC,T14B,BSc Computer Science,2,1,None,No,Java,"Heard of it, but never used it.",Other (answer as comment below),"unfortunately, I have never used any database system.
+
+i want to learn about basic of python and knowledge about SQL system, while from a beginner's level. (Please don't be too hard)"
+28,2018-03-13 03:11:59 UTC,SIT 116,BSc Advanced Computing,2,1,None,No,"Java,R,Visual Basic",Written some SQL queries already.,Microsoft Access,None 
+29,2018-03-13 03:11:59 UTC,Yes,BSc Computer Science,2,2,None,No,"C,Java",Written some SQL queries already.,PostgreSQL,
+30,2018-03-13 03:11:13 UTC,room 116 every Tuesday afternoon from 2 to 4 pm,BSc Advanced Computing,1,1,None,No,"C,Java",Never heard of SQL.,Other (answer as comment below),"I hope during the semester i can get enough resources to understand this subject and it will be great if we can use ed as the platform for discussion and sharing knowledge.
+
+I don't know what is a database system."
+31,2018-03-13 03:09:54 UTC,SIT116,BSc Electrical Engg,4,1,None,No,"C,Java,Matlab,R",Never heard of SQL.,,
+32,2018-03-13 03:09:50 UTC,114B,BSc Information Science & Engg,4,4,None,No,"C,C#,Java,Javascript/ECMAScript,Visual Basic",Can already create tables and write complex SQL queries.,"PostgreSQL,Other (answer as comment below)",SQL Developer
+33,2018-03-13 03:09:09 UTC,13B,BSc Computer Science,1,2,Written some simple Python programs,No,"Java,Other (answer below in comment)","Heard of it, but never used it.",,F#
+34,2018-03-13 03:05:54 UTC,fiosdjfioasdjfksdajfioasjfioasdjfiasjfi;lsa,BSc Computer Science,2,2,None,No,Java,Written some SQL queries already.,MySQL,NONE
+35,2018-03-13 02:55:06 UTC,yes,BSc Advanced Computing,1,1,None,No,"Java,Javascript/ECMAScript",Can interpret some SQL statements.,Microsoft Access,
+36,2018-03-13 02:42:17 UTC,T14B,BSc Advanced Computing,1,1,Basic understanding,No,Java,Can interpret some SQL statements.,Microsoft Access,"I strongly wish if any programming including SQL is required, exercises and materials can be sufficiently provided, also, instructions for doing assignments are specific enough, because I believe my programming experience is not much."
+37,2018-03-13 02:20:32 UTC,T14A,BSc Biomedical Engg,3,2,None,No,"Java,Matlab,R",Never heard of SQL.,,
+38,2018-03-13 02:14:46 UTC,T14A,BSc Computer Science,2,1.5,Written some simple Python programs,No,Java,Can interpret some SQL statements.,PostgreSQL,"Besides how to organise and manage the data, I'd like to know how to interpret and understand it."
+39,2018-03-13 01:46:47 UTC,T12A,BSc Computer Science & Technology,3,2,Have written complex Python programs already.,No,"C,Java",Can interpret some SQL statements.,"Microsoft SQL Server,PostgreSQL",
+40,2018-03-13 01:21:55 UTC,Monday 12~2pm,BSc Computer Science,2,2,Written some simple Python programs,No,"C,Java,Javascript/ECMAScript,R",Written some SQL queries already.,"MySQL,PostgreSQL","I would like to learn how big data is used on real-world, and to be prepared as a database expert."
+41,2018-03-13 01:19:17 UTC,T12A,,,1,None,No,"Java,Matlab,R","Heard of it, but never used it.",Other (answer as comment below),Question 8: None
+42,2018-03-13 01:19:05 UTC,DATA2001 SIT 117,BSc Computer Science,2,2,None,No,"Java,Javascript/ECMAScript,R",Can interpret some SQL statements.,Other (answer as comment below),database system: SPSS 
+43,2018-03-13 01:18:42 UTC,Tutorial A,BSc Computer Science + Engg,3,1,Basic understanding,No,"C,Java,Matlab","Heard of it, but never used it.",,
+44,2018-03-13 01:18:30 UTC,Tuesday 12pm SIT117,BSc Physics,3,5,Competent Python programmer (familiar with eg. functions and classes),Yes,"Java,Javascript/ECMAScript,Matlab,Ruby,Other (answer below in comment)",Can already create tables and write complex SQL queries.,"MySQL,PostgreSQL,SQLite",PHP
+45,2018-03-13 01:18:26 UTC,Tuesday 12-2 pm,BSc Biomedical Engg,3,1,Written some simple Python programs,No,Java,Written some SQL queries already.,PostgreSQL,My expectations for this unit is to become more competent using python as well as improving my knowledge I have attained in INFO2120 in relation to SQL.
+46,2018-03-13 01:18:10 UTC,12A,BSc Information System,3,3,Written some simple Python programs,No,"C,Java",Can already create tables and write complex SQL queries.,PostgreSQL,No
+47,2018-03-13 01:18:07 UTC,12pm-2pm Tue in SIT Lab117,BSc Computer Science,2,3,None,No,"Java,R",Never heard of SQL.,Other (answer as comment below),I have not used any database system before.
+48,2018-03-13 01:17:58 UTC,T12A Tuesday 12-2pm SIT 117,BSc Advanced Computing,2,6,Written some simple Python programs,No,"C,C++,C#,Java,Javascript/ECMAScript",Can interpret some SQL statements.,,
+49,2018-03-13 01:16:50 UTC,T14A,BSc Information Technology,3,2,Written some simple Python programs,No,"C,Java,Matlab,R",Can already create tables and write complex SQL queries.,"MongoDB,MySQL,PostgreSQL",
+50,2018-03-13 01:16:48 UTC,Tuesday 12-2pm,BSc Advanced Computing,2,3,Basic understanding,No,"Java,Matlab,R,Other (answer below in comment)",Can already create tables and write complex SQL queries.,PostgreSQL,Programming languages: Swift 
+51,2018-03-13 01:16:45 UTC,tuesday 12p.m.,BSc Computer Science + Math,2,1,Written some simple Python programs,No,"Java,Javascript/ECMAScript,R",Can interpret some SQL statements.,MySQL,
+52,2018-03-13 01:16:35 UTC,12-2pm Tuesday,BSc Advanced Mathematics,1,1,Written some simple Python programs,No,"Java,R","Heard of it, but never used it.",MySQL,"Can staff post the learning materials for this unit earlier next time?
+
+I really want to preview the materials before attending the lectures and tutorials but it seems recently those materials are only posted really late. "
+53,2018-03-13 01:16:29 UTC,,BSc Advanced Computing,2,1,Written some simple Python programs,No,Java,"Heard of it, but never used it.",SQLite,Expect to learn how to use SQL and python to organize and analyse data.
+54,2018-03-13 01:16:02 UTC,M12A,BSc Information Technology,3,2,Competent Python programmer (familiar with eg. functions and classes),No,"C,Java,Matlab,R",Can already create tables and write complex SQL queries.,PostgreSQL,
+55,2018-03-13 01:15:43 UTC,Tuesday 12pm,BSc Computer Science,4,2,None,No,"Java,R",Can interpret some SQL statements.,PostgreSQL,"Easy to learn and understand
+
+Helpful staff"
+56,2018-03-13 01:15:41 UTC,Yes,BSc Biomedical Engg,2,1,None,No,"Java,Ruby",Never heard of SQL.,,
+57,2018-03-13 01:15:39 UTC,Tues 12-2pm SIT 117,BSc Advanced Computing,1,1,Basic understanding,No,C,"Heard of it, but never used it.",Microsoft Access,
+58,2018-03-13 01:14:20 UTC,12pm - 2pm,BSc Computer Science,4,4,Written some simple Python programs,No,"Java,Javascript/ECMAScript,Other (answer below in comment)",Can already create tables and write complex SQL queries.,"MySQL,PostgreSQL","I have also used PHP with MySQL to do basic web development (displaying data from DB, manipulating data, etc.)"
+59,2018-03-13 01:14:01 UTC,Tuesday 12-2 sit 117,BSc Computer Science,2,2,Written some simple Python programs,No,"C,Java,Other (answer below in comment)","Heard of it, but never used it.","MySQL,PostgreSQL",I do alot of work in gdscript (python clone) however since it is for game development i would say i would need to freshen up on python 3. 
