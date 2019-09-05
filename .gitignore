@@ -4,6 +4,10 @@ tmp/
 *.tmp
 *.bak
 *.swp
+
+composite/
+frames/
+
 *~.nib
 local.properties
 .settings/
