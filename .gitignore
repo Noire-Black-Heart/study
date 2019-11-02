@@ -8,6 +8,8 @@ tmp/
 composite/
 frames/
 
+.tif
+
 *~.nib
 local.properties
 .settings/
@@ -57,3 +59,4 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+*.tif
