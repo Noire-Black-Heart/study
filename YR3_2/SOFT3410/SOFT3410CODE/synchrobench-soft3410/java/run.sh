@@ -1,5 +1,5 @@
 
-java -cp bin contention.benchmark.Test -t 1 -u 10 -b soft3410.CoarseGrainedSkiplistIntSet >> CoarseGrainedSkiplistIntSetOutput40BUCKETS.txt 
+java -cp bin contention.benchmark.Test -t 1 -u 10 -b soft3410.FasterSkiplistIntSet >> FasterSkiplistIntSetOutput40BUCKETS.txt 
 printf "\n\nBEGGINING NEW TEST\n\n" >> CoarseGrainedSkiplistIntSetOutput40BUCKETS.txt
 
 java -cp bin contention.benchmark.Test -t 1 -u 50 -b soft3410.CoarseGrainedSkiplistIntSet >> CoarseGrainedSkiplistIntSetOutput40BUCKETS.txt 
@@ -8,7 +8,7 @@ printf "\n\nBEGGINING NEW TEST\n\n" >> CoarseGrainedSkiplistIntSetOutput40BUCKET
 java -cp bin contention.benchmark.Test -t 1 -u 90 -b soft3410.CoarseGrainedSkiplistIntSet >> CoarseGrainedSkiplistIntSetOutput40BUCKETS.txt 
 printf "\n\nBEGGINING NEW TEST\n\n" >> CoarseGrainedSkiplistIntSetOutput40BUCKETS.txt
 
-java -cp bin contention.benchmark.Test -t 2 -u 10 -b soft3410.CoarseGrainedSkiplistIntSet >> CoarseGrainedSkiplistIntSetOutput40BUCKETS.txt 
+java -cp bin contention.benchmark.Test -t 2 -u 10 -b soft3410.FasterSkiplistIntSet >> FasterSkiplistIntSetOutput40BUCKETS.txt
 printf "\n\nBEGGINING NEW TEST\n\n" >> CoarseGrainedSkiplistIntSetOutput40BUCKETS.txt
 
 java -cp bin contention.benchmark.Test -t 2 -u 50 -b soft3410.CoarseGrainedSkiplistIntSet >> CoarseGrainedSkiplistIntSetOutput40BUCKETS.txt 

@@ -3,6 +3,7 @@ package soft3410;
 import java.util.Random;
 
 import contention.abstractions.AbstractCompositionalIntSet;
+import java.util.concurrent.locks.*;
 
 public class FasterSkiplistIntSet extends AbstractCompositionalIntSet {
 
@@ -28,6 +29,7 @@ public class FasterSkiplistIntSet extends AbstractCompositionalIntSet {
 	public int level;
 	private Random random = new Random();
 	private static final double probability=0.5;
+	private ReadWriteLock lock = new ReentrantReadWriteLock();
 	
 	
 	public FasterSkiplistIntSet() {
@@ -78,17 +80,40 @@ public class FasterSkiplistIntSet extends AbstractCompositionalIntSet {
         }
         return p;
     }
-	
+    
+  
 	
 	@Override
 	public boolean addInt(int x) {
+		lock.writeLock().lock();
 		
-		Node node = findNode(x);
+		Node node = head;
+        while(true){
+        	//traverse the list from most top level
+        	
+            while (node.right.getValue() != Integer.MAX_VALUE && node.right.getValue() <= x) {
+            	node = node.right;
+             
+            }
+            //if smaller than right node, try go down one level
+            if (node.down != null) {
+            	node = node.down;
+                //then repeat the loop on going right
+            }else {
+            	//at bottom list, target found
+                break;
+            }
+
+        }
 		
+		
+		//Node node = findNode(x);
+		
+        boolean result = false;
 		//if already have this node, return false
-		if(x == node.getValue()) {
-			return false;
-		}
+		if(x != node.getValue()) {
+			
+		
 		
 		//create the new node and insert it at most bottom level
 		Node newNode = new Node(x);
@@ -136,8 +161,10 @@ public class FasterSkiplistIntSet extends AbstractCompositionalIntSet {
 		}
 		
 		size++;
-		
-		return true;
+		result = true;
+		}
+		lock.writeLock().unlock();
+		return result;
 	}
 
 	private void insertAfter(Node node, Node newNode) {//insert new node after node
@@ -151,12 +178,37 @@ public class FasterSkiplistIntSet extends AbstractCompositionalIntSet {
 	@Override
 	public boolean removeInt(int x) {
 		// TODO Auto-generated method stub
-		Node node = findNode(x);
+		lock.writeLock().lock();
+		
+		Node node = head;
+        while(true){
+        	//traverse the list from most top level
+        	
+            while (node.right.getValue() != Integer.MAX_VALUE && node.right.getValue() <= x) {
+            	node = node.right;
+             
+            }
+            //if smaller than right node, try go down one level
+            if (node.down != null) {
+            	node = node.down;
+                //then repeat the loop on going right
+            }else {
+            	//at bottom list, target found
+                break;
+            }
+
+        }
+		
+		
+		
+		
+		//Node node = findNode(x);
 		
 		//if dont have the node, return false;
-		if(node.getValue() != x) {
-			return false;
-		}
+        boolean result = false;
+		if(node.getValue() == x) {
+			
+		
 		
 		//begin from the most bottom node, delete the node from down to up, one by one level
 		while(node != null) {
@@ -178,18 +230,41 @@ public class FasterSkiplistIntSet extends AbstractCompositionalIntSet {
 		
 		
 		size--;
-		return true;
+		result = true;
+		}
+		lock.writeLock().unlock();
+		return result;
 	}
 
 	@Override
 	public boolean containsInt(int x) {
 		// TODO Auto-generated method stub
-		Node p = findNode(x);
-		if(x == p.getValue()) {
-			return true;
-		}
+		lock.readLock().lock();
 		
-		return false;
+		
+		Node node = head;
+        while(true){
+        	//traverse the list from most top level
+        	
+            while (node.right.getValue() != Integer.MAX_VALUE && node.right.getValue() <= x) {
+            	node = node.right;
+             
+            }
+            //if smaller than right node, try go down one level
+            if (node.down != null) {
+            	node = node.down;
+                //then repeat the loop on going right
+            }else {
+            	//at bottom list, target found
+                break;
+            }
+
+        }
+		
+		
+		//Node p = findNode(x);
+        lock.readLock().unlock();
+		return x == node.getValue();
 	}
 
 	@Override
